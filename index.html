@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undead Warlock Dynamic Leveling 1-60 | WoW Classic</title>
+    <title>Undead Warlock Dynamic Leveling 1-60 | WoW Forever Edition</title>
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#0a0910">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="WarlockForever">
+    <meta name="description" content="Klassisk Undead Warlock Leveling Guide anpassad för WoW Forever servern med Dual-Spec support och offline PWA-funktion.">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -107,7 +114,7 @@
                 <i class="fa-solid fa-skull"></i>
             </div>
             <div>
-                <div class="font-bold text-slate-100">Installera Warlock 1-60 PWA</div>
+                <div class="font-bold text-slate-100">Installera WoW Forever Warlock PWA</div>
                 <div class="text-xs text-slate-400">Lägg till på hemskärmen för blixtsnabb offline-åtkomst</div>
             </div>
         </div>
@@ -134,9 +141,9 @@
                         </div>
                         <div>
                             <h1 class="font-extrabold text-lg sm:text-xl text-slate-100 leading-tight flex items-center gap-2">
-                                Undead Warlock <span class="text-xs px-2 py-0.5 rounded bg-horde/40 text-red-300 border border-horde/50">1-60 Guide</span>
+                                Undead Warlock <span class="text-xs px-2 py-0.5 rounded bg-horde/40 text-red-300 border border-horde/50">WoW Forever Edition</span>
                             </h1>
-                            <p class="text-xs text-slate-400">WoW Classic / Hardcore / Era (Wowhead Data Engine)</p>
+                            <p class="text-xs text-slate-400">Exklusiv Leveling & Dual-Spec Guide (WoW Forever Server)</p>
                         </div>
                     </div>
 
@@ -152,9 +159,12 @@
                 <div class="flex items-center gap-3">
                     <div class="relative flex-1 md:w-64">
                         <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
-                        <input type="text" id="global-search" placeholder="Sök spells, wands, quests..." 
+                        <input type="text" id="global-search" placeholder="Sök spells, wands, WoW Forever QoL..." 
                             class="w-full bg-slate-900/80 border border-borderbg rounded-lg pl-9 pr-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-purple-500 transition">
                     </div>
+                    <button onclick="exportSingleFile()" class="flex items-center gap-1.5 bg-fel/20 hover:bg-fel/30 text-xs text-fel font-bold px-3 py-1.5 rounded-lg border border-fel/40 transition">
+                        <i class="fa-solid fa-file-arrow-down"></i> Spara Fil (.html)
+                    </button>
                     <button id="pwa-manual-install" class="hidden md:flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-xs text-purple-300 px-3 py-1.5 rounded-lg border border-slate-700 transition">
                         <i class="fa-solid fa-mobile-screen-button"></i> App
                     </button>
@@ -196,7 +206,7 @@
                 <button onclick="setLevel(20)" class="lvl-btn px-2.5 py-1 text-xs font-semibold rounded bg-slate-800 hover:bg-purple-900 text-slate-300 border border-slate-700 transition">L20</button>
                 <button onclick="setLevel(24)" class="lvl-btn px-2.5 py-1 text-xs font-semibold rounded bg-slate-800 hover:bg-purple-900 text-slate-300 border border-slate-700 transition">L24</button>
                 <button onclick="setLevel(30)" class="lvl-btn px-2.5 py-1 text-xs font-semibold rounded bg-slate-800 hover:bg-purple-900 text-slate-300 border border-slate-700 transition">L30</button>
-                <button onclick="setLevel(40)" class="lvl-btn px-2.5 py-1 text-xs font-semibold rounded bg-slate-800 hover:bg-purple-900 text-slate-300 border border-slate-700 transition">L40</button>
+                <button onclick="setLevel(40)" class="lvl-btn px-2.5 py-1 text-xs font-semibold rounded font-bold bg-amber-950 text-amber-400 border border-amber-600/50 transition">L40 Dual-Spec</button>
                 <button onclick="setLevel(60)" class="lvl-btn px-2.5 py-1 text-xs font-semibold rounded bg-fel/20 text-fel border border-fel/40 transition">L60</button>
             </div>
 
@@ -210,7 +220,7 @@
                 <i class="fa-solid fa-wand-magic-sparkles"></i> Spells & Rotation
             </button>
             <button data-tab="tab-talents" class="nav-tab flex items-center gap-2 px-4 py-3 text-xs sm:text-sm font-semibold border-b-2 border-transparent text-slate-400 hover:text-slate-200 whitespace-nowrap transition">
-                <i class="fa-solid fa-tree"></i> Talents (Affliction)
+                <i class="fa-solid fa-tree"></i> Talents & Dual-Spec
             </button>
             <button data-tab="tab-gear" class="nav-tab flex items-center gap-2 px-4 py-3 text-xs sm:text-sm font-semibold border-b-2 border-transparent text-slate-400 hover:text-slate-200 whitespace-nowrap transition">
                 <i class="fa-solid fa-shield-halved"></i> Gear & Quests
@@ -219,7 +229,7 @@
                 <i class="fa-solid fa-flask"></i> Professions & Crafting
             </button>
             <button data-tab="tab-prep" class="nav-tab flex items-center gap-2 px-4 py-3 text-xs sm:text-sm font-semibold border-b-2 border-transparent text-slate-400 hover:text-slate-200 whitespace-nowrap transition">
-                <i class="fa-solid fa-calendar-check text-amber-400"></i> WoW Forever Prep
+                <i class="fa-solid fa-rocket text-amber-400"></i> WoW Forever Launch Hub
             </button>
             <button data-tab="tab-macros" class="nav-tab flex items-center gap-2 px-4 py-3 text-xs sm:text-sm font-semibold border-b-2 border-transparent text-slate-400 hover:text-slate-200 whitespace-nowrap transition">
                 <i class="fa-solid fa-terminal"></i> Makron & Tips
@@ -238,8 +248,8 @@
                 <div class="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-purple-950/20 to-transparent pointer-events-none"></div>
                 <div class="flex items-start justify-between">
                     <div>
-                        <div class="text-xs uppercase tracking-wider text-fel font-bold mb-1">Aktuell Level-Fas</div>
-                        <h2 id="phase-title" class="text-xl sm:text-2xl font-bold text-slate-100 gold-header">Leveling Fas 1-10: Grundläggande Mage-Killer</h2>
+                        <div class="text-xs uppercase tracking-wider text-fel font-bold mb-1">WoW Forever Leveling-Fas</div>
+                        <h2 id="phase-title" class="text-xl sm:text-2xl font-bold text-slate-100 gold-header">Leveling Fas 1-10: Starter & Brill</h2>
                         <p id="phase-description" class="text-sm text-slate-300 mt-2 max-w-3xl leading-relaxed">
                             Beskrivning av spelstil för denna nivån...
                         </p>
@@ -250,7 +260,7 @@
             <!-- Optimal Rotation Card -->
             <div class="bg-cardbg border border-borderbg rounded-xl p-5 shadow-lg">
                 <h3 class="text-lg font-bold text-slate-100 mb-3 flex items-center gap-2">
-                    <i class="fa-solid fa-rotate-right text-purple-400"></i> Optimal Combat Rotation <span id="rotation-lvl-tag" class="text-xs bg-purple-900/60 text-purple-300 px-2 py-0.5 rounded">Level 60</span>
+                    <i class="fa-solid fa-rotate-right text-purple-400"></i> Optimal Combat Rotation (WoW Forever Tuned) <span id="rotation-lvl-tag" class="text-xs bg-purple-900/60 text-purple-300 px-2 py-0.5 rounded">Level 60</span>
                 </h3>
                 <div id="rotation-steps" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
                     <!-- Dynamic Rotation Steps injected via JS -->
@@ -272,15 +282,15 @@
             </div>
         </section>
 
-        <!-- TAB 2: TALENTS (AFFLICTION BUILD) -->
+        <!-- TAB 2: TALENTS (AFFLICTION & DUAL-SPEC) -->
         <section id="tab-talents" class="tab-content hidden space-y-6">
             
             <div class="bg-cardbg border border-borderbg rounded-xl p-5 shadow-lg">
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-borderbg pb-4 mb-4">
                     <div>
-                        <h2 class="text-xl font-bold text-slate-100 gold-header">Affliction Leveling Talent Build (Drain-Tanking)</h2>
+                        <h2 class="text-xl font-bold text-slate-100 gold-header">Affliction Drain-Tanking & WoW Forever Dual-Spec</h2>
                         <p class="text-xs text-slate-400 mt-1">
-                            Talent-fördelningen anpassas automatiskt när du ändrar level. Totalt tillgängliga poäng vid valda level: <span id="talent-points-available" class="text-fel font-bold">51 poäng</span>.
+                            På WoW Forever låser du upp **Dual Specialization vid Level 40**. Ha en ren Affliction Drain-tank spec för solo-leveling och en Demonology/Destro spec för instant Dungeon Runs! Tillgängliga talent-poäng: <span id="talent-points-available" class="text-fel font-bold">51 poäng</span>.
                         </p>
                     </div>
                     <div class="flex items-center gap-2">
@@ -300,7 +310,7 @@
                     <div class="bg-slate-950/80 border border-purple-900/40 rounded-xl p-4">
                         <div class="flex justify-between items-center mb-4 pb-2 border-b border-purple-900/30">
                             <h3 class="font-bold text-purple-300 flex items-center gap-2">
-                                <i class="fa-solid fa-skull text-purple-500"></i> Affliction Tree
+                                <i class="fa-solid fa-skull text-purple-500"></i> Affliction Tree (Primary Solo)
                             </h3>
                             <span id="affliction-spent" class="text-xs font-mono font-bold bg-purple-950 text-purple-300 px-2 py-1 rounded">0 Poäng</span>
                         </div>
@@ -313,7 +323,7 @@
                     <div class="bg-slate-950/80 border border-slate-800 rounded-xl p-4">
                         <div class="flex justify-between items-center mb-4 pb-2 border-b border-slate-800">
                             <h3 class="font-bold text-emerald-400 flex items-center gap-2">
-                                <i class="fa-solid fa-ghost text-emerald-500"></i> Demonology Tree
+                                <i class="fa-solid fa-ghost text-emerald-500"></i> Demonology Tree (Secondary/Dungeon)
                             </h3>
                             <span id="demonology-spent" class="text-xs font-mono font-bold bg-slate-900 text-emerald-400 px-2 py-1 rounded">0 Poäng</span>
                         </div>
@@ -337,11 +347,11 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                     <div class="bg-slate-900/80 p-3.5 rounded-lg border border-purple-900/40">
                         <div class="text-xs font-bold text-purple-400 uppercase tracking-wider">1. Shadow Damage</div>
-                        <div class="text-xs text-slate-300 mt-1">Ökar skadan på DoTs och healingen på Drain Life. Prioritera "of Shadow Wrath" gear på AH!</div>
+                        <div class="text-xs text-slate-300 mt-1">Ökar skadan på DoTs och healingen på Drain Life. Prioritera "of Shadow Wrath" gear på WoW Forever AH!</div>
                     </div>
                     <div class="bg-slate-900/80 p-3.5 rounded-lg border border-red-900/40">
                         <div class="text-xs font-bold text-red-400 uppercase tracking-wider">2. Stamina</div>
-                        <div class="text-xs text-slate-300 mt-1">Hälsa = Mana via Life Tap. Mer HP låter dig tanka fler mobs samtidigt utan risken att dö.</div>
+                        <div class="text-xs text-slate-300 mt-1">Hälsa = Mana via Life Tap. Mer HP låter dig tanka 3-4 mobs samtidigt utan risken att dö.</div>
                     </div>
                     <div class="bg-slate-900/80 p-3.5 rounded-lg border border-blue-900/40">
                         <div class="text-xs font-bold text-blue-400 uppercase tracking-wider">3. Spirit</div>
@@ -390,8 +400,8 @@
                         <div class="p-3 bg-slate-900/70 border border-slate-800 rounded-lg flex items-start gap-3">
                             <i class="fa-solid fa-gem text-amber-400 text-lg mt-0.5"></i>
                             <div>
-                                <h4 class="text-xs font-bold text-slate-200">BiS Early Quests (Lvl 10-20)</h4>
-                                <p class="text-xs text-slate-400 mt-0.5">Gör Orb of Soran'ruk questen vid Lvl 20 för den fantastiska off-handen i BFD/SFK. Samla även ihop till Spidersilk Boots (+4 Stamina/Intellect).</p>
+                                <h4 class="text-xs font-bold text-slate-200">BiS Early Quests & Custom Library Items</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">Gör Orb of Soran'ruk questen vid Lvl 20 för den fantastiska off-handen i BFD/SFK. Samla även WoW Forevers custom library-böcker för tidiga smycken!</p>
                             </div>
                         </div>
                     </div>
@@ -417,7 +427,7 @@
             
             <div class="bg-cardbg border border-borderbg rounded-xl p-5 shadow-lg">
                 <h2 class="text-xl font-bold text-slate-100 gold-header mb-1">Professions & Warlock Crafting Guide</h2>
-                <p class="text-xs text-slate-400 mb-4">Yrkesguiden och tränar-rekommendationerna anpassas för din spelstil och level.</p>
+                <p class="text-xs text-slate-400 mb-4">Yrkesguiden och tränar-rekommendationerna anpassade för WoW Forever ekonomi och spelstil.</p>
 
                 <!-- Best Builds for Professions -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
@@ -427,7 +437,7 @@
                         <p class="text-xs text-slate-400 mt-2">Sy din egen Shadow Damage-utrustning (Shadoweave) & disenchanta gröna drops för wand-material.</p>
                     </div>
                     <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
-                        <div class="text-xs font-bold text-red-400 uppercase tracking-wider mb-1">PvP Focus</div>
+                        <div class="text-xs font-bold text-red-400 uppercase tracking-wider mb-1">World PvP Focus</div>
                         <div class="text-sm font-bold text-slate-100">Mining + Engineering</div>
                         <p class="text-xs text-slate-400 mt-2">Iron Grenades för extra AoE-stun, Spellpower Goggles samt Gnomish/Goblin tillbehör.</p>
                     </div>
@@ -437,9 +447,9 @@
                         <p class="text-xs text-slate-400 mt-2">Brygg dina egna Elixirs of Shadow Power, Greater Healing Potions och Mana Potions.</p>
                     </div>
                     <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
-                        <div class="text-xs font-bold text-amber-400 uppercase tracking-wider mb-1">Mount-Guld Farm</div>
+                        <div class="text-xs font-bold text-amber-400 uppercase tracking-wider mb-1">WoW Forever Economy</div>
                         <div class="text-sm font-bold text-slate-100">Tailoring + Mining/Herb</div>
-                        <p class="text-xs text-slate-400 mt-2">Sy väskor och sälj material på AH för att garantera guld till din Level 40 Felsteed mount!</p>
+                        <p class="text-xs text-slate-400 mt-2">Sy väskor och sälj material på AH. Du sparar 100g vid Lvl 40 tack vare gratis Warlock mount!</p>
                     </div>
                 </div>
 
@@ -520,27 +530,27 @@
 
         </section>
 
-        <!-- TAB 5: WOW FOREVER PREP -->
+        <!-- TAB 5: WOW FOREVER PREP & LAUNCH HUB -->
         <section id="tab-prep" class="tab-content hidden space-y-6">
             
             <div class="bg-cardbg border border-borderbg rounded-xl p-5 shadow-lg">
                 <div class="flex items-center justify-between mb-2">
                     <h2 class="text-xl font-bold text-amber-400 flex items-center gap-2">
-                        <i class="fa-solid fa-rocket"></i> WoW Forever Launch & Zone Route
+                        <i class="fa-solid fa-rocket"></i> WoW Forever Launch Hub & Zone Route
                     </h2>
                     <span class="text-xs bg-amber-500/20 text-amber-300 border border-amber-500/40 px-2.5 py-1 rounded-full font-bold">Launch Ready • 5 November</span>
                 </div>
-                <p class="text-xs text-slate-300">Allt du behöver veta inför starten den 5 november: Unika server-features, optimal Horde leveling-rutt och WoW Forever custom quests.</p>
+                <p class="text-xs text-slate-300">Allt anpassat för WoW Forever server-starten den 5 november: Unika server-features, optimal Horde leveling-rutt och WoW Forever custom quests.</p>
 
                 <!-- Server Features Grid -->
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 my-4">
                     <div class="p-3 bg-slate-900 rounded-lg border border-slate-800">
-                        <div class="text-xs font-bold text-slate-300">SERVER RATES</div>
-                        <div class="text-sm font-bold text-fel">1x Classic Vanilla</div>
+                        <div class="text-xs font-bold text-slate-300">SERVER RATES & XP</div>
+                        <div class="text-sm font-bold text-fel">1x Custom Vanilla Engine</div>
                     </div>
-                    <div class="p-3 bg-slate-900 rounded-lg border border-slate-800">
-                        <div class="text-xs font-bold text-slate-300">Dual Specialization</div>
-                        <div class="text-xs text-slate-400 mt-0.5">Låses upp vid level 40. Gör att du kan ha en Affliction Drain-Tank build för solo-leveling och en Demonology/Destro build för dungeons utan respec-kostnad!</div>
+                    <div class="p-3 bg-slate-900 rounded-lg border border-amber-900/50">
+                        <div class="text-xs font-bold text-amber-400">Dual Specialization</div>
+                        <div class="text-xs text-slate-400 mt-0.5">Låses upp vid level 40. Gör att du kan skifta mellan Affliction Drain-Tank solo spec och Demonology/Destro för dungeons.</div>
                     </div>
                     <div class="p-3 bg-slate-900 rounded-lg border border-slate-800">
                         <div class="text-xs font-bold text-slate-300">Ekonomi & Mount-Guld</div>
@@ -552,7 +562,7 @@
                 <div class="p-3 bg-purple-950/40 border border-purple-500/40 rounded-lg text-xs text-purple-200 flex items-center gap-3">
                     <i class="fa-solid fa-book-open text-purple-400 text-xl"></i>
                     <div>
-                        <span class="font-bold">Custom Library Quests:</span> Håll ögonen öppna efter glödande böcker i Tirisfal, Silverpine och Barrens. De ger tidiga stat-smycken (rings & necks) som annars saknas i tidiga Vanilla!
+                        <span class="font-bold">WoW Forever Custom Library Quests:</span> Håll ögonen öppna efter glödande böcker i Tirisfal, Silverpine och Barrens. De ger tidiga stat-smycken (rings & necks) som annars saknas i tidiga skedet!
                     </div>
                 </div>
             </div>
@@ -570,7 +580,7 @@
             <!-- Interactive Launch Checklist -->
             <div class="bg-cardbg border border-borderbg rounded-xl p-5 shadow-lg">
                 <h3 class="text-lg font-bold text-slate-100 mb-3 flex items-center justify-between">
-                    <span class="flex items-center gap-2"><i class="fa-solid fa-square-check text-fel"></i> Checklista för Launch-dagen (5 Nov)</span>
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-square-check text-fel"></i> Checklista för WoW Forever Launch-dagen (5 Nov)</span>
                     <span id="checklist-progress" class="text-xs bg-slate-800 text-fel font-mono px-2 py-0.5 rounded">0/3 Klart</span>
                 </h3>
                 <div class="space-y-2 text-xs">
@@ -585,14 +595,14 @@
                         <input type="checkbox" id="chk-wand" onchange="toggleChecklist('wand')" class="mt-0.5 accent-fel w-4 h-4">
                         <div>
                             <span class="font-bold text-slate-200">Prioritera Wand på Level 5</span>
-                            <p class="text-slate-400">Tillverka eller köp Lesser Magic Wand så fort du når Lvl 5. Det fördubblar din leveling-hastighet!</p>
+                            <p class="text-slate-400">Tillverka eller köp Lesser Magic Wand så fort du nått Lvl 5. Det fördubblar din leveling-hastighet!</p>
                         </div>
                     </label>
                     <label class="flex items-start gap-3 p-3 bg-slate-900/80 rounded border border-slate-800 cursor-pointer hover:bg-slate-900 transition">
                         <input type="checkbox" id="chk-spells" onchange="toggleChecklist('spells')" class="mt-0.5 accent-fel w-4 h-4">
                         <div>
                             <span class="font-bold text-slate-200">Träna bara nödvändiga spells</span>
-                            <p class="text-slate-400">Träna INTE alla spells på låg level (t.ex. avstå Curse of Weakness ranker eller Rain of Fire) för att spara guld till spells och professions.</p>
+                            <p class="text-slate-400">Träna INTE alla spells på låg level (t.ex. avstå Curse of Weakness ranker eller Rain of Fire) för att spara guld till spells och WoW Forever Dual-Spec vid Level 40.</p>
                         </div>
                     </label>
                 </div>
@@ -606,10 +616,10 @@
             <!-- Instructions Header -->
             <div class="bg-cardbg border border-borderbg rounded-xl p-5 shadow-lg">
                 <h2 class="text-xl font-bold text-slate-100 gold-header mb-1">Warlock Makron & Undead Levling-Tips</h2>
-                <p class="text-xs text-slate-300">Kopiera och klistra in dessa makron i spelet för att förenkla din leveling, snabba upp pulls och rädda dig i nödsituationer.</p>
+                <p class="text-xs text-slate-300">Kopiera och klistra in dessa makron i spelet för att förenkla din leveling, snabba upp pulls och rädda dig i nödsituationer på WoW Forever.</p>
                 
                 <div class="mt-4 bg-slate-950 p-3 rounded-lg border border-slate-800 text-xs text-slate-400 space-y-1">
-                    <div class="font-bold text-slate-200">Hur du lägger till makron i WoW Classic / Forever:</div>
+                    <div class="font-bold text-slate-200">Hur du lägger till makron i WoW Forever:</div>
                     <ol class="list-decimal list-inside space-y-0.5">
                         <li>Tryck på Enter i spelet och skriv <code class="text-purple-300 font-mono">/macro</code> eller pressa Esc → Macros.</li>
                         <li>Klicka på <strong>New</strong> längst ner, välj en ikon och ge makrot ett namn (t.ex. PetAttack).</li>
@@ -659,12 +669,12 @@
     <footer class="bg-cardbg border-t border-borderbg py-4 px-4 text-center text-xs text-slate-500 mt-auto">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
             <div>
-                WoW Classic / Hardcore / Era Dynamic Leveling Guide • Undead Affliction Warlock
+                WoW Forever Dynamic Leveling Guide • Undead Affliction Warlock
             </div>
             <div class="flex items-center gap-3">
                 <span>PWA Optimized</span>
                 <span>•</span>
-                <span class="text-fel">WoW Forever (5 Nov Launch)</span>
+                <span class="text-fel">WoW Forever Launch Ready</span>
             </div>
         </div>
     </footer>
@@ -688,12 +698,12 @@
             }
         };
 
-        // Static Database Definitions
+        // Static Database Definitions (Tailored for WoW Forever)
         const phaseData = [
             { maxLvl: 10, title: 'Leveling Fas 1-10: Starter & Brill', desc: 'Prioritera Wand vid level 5! Använd Imp som damage support och spammar Shadow Bolt. Glöm inte kasta Corruption och Immolate i starten av varje strid.' },
             { maxLvl: 20, title: 'Leveling Fas 10-20: Voidwalker & Wand Spike', desc: 'Vid level 10 får du din Voidwalker. Låt Voidwalker ta aggro, lägg alla DoTs (Corruption, Agony, Siphon Life ifall tillgänglig) och Wand ihjäl mobben.' },
             { maxLvl: 30, title: 'Leveling Fas 20-30: Drain-Tanking Upplåsning', desc: 'Med 5/5 Fel Concentration vid level 24 kan du börja Drain-tanka! Du behöver inte längre vänta på Voidwalker aggro. Gör Soran\'ruk questen vid level 20.' },
-            { maxLvl: 40, title: 'Leveling Fas 30-40: Agony & Succubus Speed', desc: 'Använd Succubus för maximal skada eller Voidwalker för trygghet. Håll DoTs uppe på 2-3 mobs samtidigt och använd Life Tap kontinuerligt med Cannibalize.' },
+            { maxLvl: 40, title: 'Leveling Fas 30-40: Dual-Spec & Succubus Speed', desc: 'Lås upp Dual-Spec på WoW Forever vid Level 40! Använd Succubus för maximal solo-skada. Håll DoTs uppe på 2-3 mobs samtidigt och använd Life Tap kontinuerligt med Cannibalize.' },
             { maxLvl: 50, title: 'Leveling Fas 40-50: Felsteed & Shadoweave Gear', desc: 'Grattis till din gratis Felsteed mount vid lvl 40! Med Shadoweave-setet gör dina DoTs och Drain Life enorm skada. 0 downtime!' },
             { maxLvl: 60, title: 'Leveling Fas 50-60: Pre-Raid BiS & Endgame', desc: 'Avsluta i Plaguelands och Winterspring. Gör Warlock questen för Soul Harvester. Samla Felcloth och träna din maximala rank av alla spells!' }
         ];
@@ -741,7 +751,7 @@
             { range: 'L10 - L15', title: 'Silverpine Forest / The Barrens', desc: 'Gör Voidwalker questen i Undercity vid Lvl 10! Ta zeppelinen från Undercity till Orgrimmar för att påbörja Barrens för tät quest-struktur.' },
             { range: 'L15 - L25', title: 'Stonetalon Mountains & Barrens South', desc: 'Gör Warlock Succubus questen vid Lvl 20. Kör **Orb of Soran\'ruk** questen i SFK & BFD. Skaffa **Gravestone Scepter** wanden vid Lvl 24!' },
             { range: 'L25 - L35', title: 'Thousand Needles, Hillsbrad & Arathi', desc: 'Med 5/5 Fel Concentration vid Lvl 24 kan du börja Drain-tanka oavbrutet. Byt mellan Hillsbrad, Shimmering Flats och Arathi.' },
-            { range: 'L35 - L45', title: 'Stranglethorn Vale (STV), Badlands & Desolace', desc: 'Vid Lvl 40: Hämta din **gratis Felsteed Mount** i Undercity! Sy din **Shadoweave-utrustning** för gigantisk skadeökning på Drain Life.' },
+            { range: 'L35 - L45', title: 'Stranglethorn Vale (STV), Badlands & Desolace', desc: 'Vid Lvl 40: Hämta din **gratis Felsteed Mount** i Undercity och aktivera **Dual-Spec**! Sy din **Shadoweave-utrustning** för gigantisk skadeökning.' },
             { range: 'L45 - L53', title: 'Tanaris, Feralas & Hinterlands', desc: 'Grinda pirater i Tanaris eller ogres i Feralas. Siphon Life + Agony + Corruption gör att du drar 3 mobs samtidigt utan downtime.' },
             { range: 'L53 - L60', title: 'Western & Eastern Plaguelands, Winterspring', desc: 'Gör din **Sunken Temple Warlock quest** för Soul Harvester. Avsluta med att grinda felcloth i Azshara och gör Pre-Raid BiS quests i Plaguelands!' }
         ];
@@ -1215,18 +1225,19 @@
         function setupPWA() {
             // Manifest Data URL Injection
             const manifestData = {
-                name: "Undead Warlock 1-60 Guide",
-                short_name: "Warlock1-60",
+                name: "Undead Warlock 1-60 WoW Forever Guide",
+                short_name: "WarlockForever",
                 start_url: "./index.html",
                 display: "standalone",
                 background_color: "#0a0910",
                 theme_color: "#0a0910",
-                description: "WoW Classic Dynamic Leveling Guide for Undead Warlock",
+                description: "WoW Forever Dynamic Leveling Guide for Undead Warlock",
                 icons: [
                     {
                         src: "https://placehold.co/192x192/581c87/ffffff?text=Warlock",
                         sizes: "192x192",
-                        type: "image/png"
+                        type: "image/png",
+                        purpose: "any maskable"
                     },
                     {
                         src: "https://placehold.co/512x512/581c87/ffffff?text=Warlock",
@@ -1283,7 +1294,7 @@
                     if (deferredPrompt) {
                         deferredPrompt.prompt();
                     } else {
-                        alert('För att installera: Klicka på delningsknappen i din webbläsare och välj "Lägg till på hemskärmen".');
+                        alert('För att installera på mobil/dator:\n- iOS (Safari): Tryck på "Dela" -> "Lägg till på hemskärmen".\n- Android/Chrome: Tryck på tre punkterna längst upp till höger -> "Installera App".');
                     }
                 });
             }
@@ -1294,14 +1305,23 @@
                 });
             }
 
-            // Register Service Worker if supported
+            // Register Service Worker for offline capability
             if ('serviceWorker' in navigator) {
                 const swCode = `
+                    const CACHE_NAME = 'warlock-forever-v2';
                     self.addEventListener('install', (e) => {
-                        e.waitUntil(caches.open('warlock-guide-v1').then(cache => cache.addAll(['./'])));
+                        self.skipWaiting();
+                        e.waitUntil(
+                            caches.open(CACHE_NAME).then(cache => cache.addAll(['./', 'index.html']))
+                        );
+                    });
+                    self.addEventListener('activate', (e) => {
+                        e.waitUntil(clients.claim());
                     });
                     self.addEventListener('fetch', (e) => {
-                        e.respondWith(caches.match(e.request).then(res => res || fetch(e.request)));
+                        e.respondWith(
+                            caches.match(e.request).then(res => res || fetch(e.request).catch(() => caches.match('./')))
+                        );
                     });
                 `;
                 const swBlob = new Blob([swCode], { type: 'text/javascript' });
@@ -1311,6 +1331,20 @@
 
         // Run application on load
         window.onload = initApp;
+
+        // Function to export file so user can launch outside iframe
+        function exportSingleFile() {
+            const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'WoW_Forever_Warlock_Guide.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
     </script>
 </body>
 </html>
