@@ -701,7 +701,7 @@
         // Static Database Definitions (Tailored for WoW Forever Custom Spells)
         const phaseData = [
             { maxLvl: 10, title: 'Leveling Fas 1-10: Starter & Wand Spike', desc: 'Prioritera Wand vid level 5! Använd Imp som damage support och spammar Shadow Bolt. Corruption är instant vid 5/5 talent.' },
-            { maxLvl: 20, title: 'Leveling Fas 10-20: Voidwalker & Agony Banes', desc: 'Vid level 10 får du Voidwalker. På WoW Forever kan du stacka Bane of Agony OCH en utility Curse samtidigt på målet!' },
+            { maxLvl: 20, title: 'Leveling Fas 10-20: Voidwalker & Agony Banes', desc: 'Vid level 10 får du Voidwalker. På WoW Forever är Agony klassad som Bane of Agony och stackar oberoende av Utility Curses!' },
             { maxLvl: 30, title: 'Leveling Fas 20-30: Drain-Tanking & Soul Siphon', desc: 'Med Fel Concentration (lvl 24) och Soul Siphon ökar Drain Life med upp till 36% skada/healing per aktiv DoT.' },
             { maxLvl: 40, title: 'Leveling Fas 30-40: Dual-Spec & Incinerate Weaving', desc: 'Lås upp Dual-Spec vid Level 40! Testa Destruction med Incinerate + Firestone eller stanna Affliction för Wrack!' },
             { maxLvl: 50, title: 'Leveling Fas 40-50: Wrack Capstone & Shadoweave', desc: 'Wrack (31-pt Affliction Capstone) kanaliserar tung shadow-skada och ökar alla andra DoTs med 10%!' },
@@ -710,17 +710,18 @@
 
         const spellsDb = [
             { lvl: 1, name: 'Shadow Bolt (Rank 1)', icon: 'fa-bolt', desc: 'Huvudskada tidigt.' },
-            { lvl: 1, name: 'Demon Skin (Rank 1)', icon: 'fa-shield-cat', desc: '+Armor & HP regen.' },
+            { lvl: 1, name: 'Demon Armor / Skin', icon: 'fa-shield-cat', desc: '+Armor, HP regen & Healing uppladdning.' },
             { lvl: 4, name: 'Corruption (Rank 1)', icon: 'fa-skull', desc: 'Din viktigaste DoT (Kan critta med Pandemic!).' },
-            { lvl: 4, name: 'Curse of Weakness', icon: 'fa-hand-dots', desc: 'Utility Curse (Kan stackas med Banes).' },
+            { lvl: 4, name: 'Curse of Weakness', icon: 'fa-hand-dots', desc: 'Utility Curse (Kan stackas oberoende av Banes).' },
             { lvl: 6, name: 'Life Tap (Rank 1)', icon: 'fa-heart-circle-bolt', desc: 'Omvandlar HP till Mana.' },
-            { lvl: 8, name: 'Bane of Agony (Rank 1)', icon: 'fa-fire', desc: 'Bane-kategori DoT (Kan stackas med Utility Curses).' },
+            { lvl: 8, name: 'Bane of Agony (Rank 1)', icon: 'fa-fire', desc: 'WoW Forever Bane-DoT (Stackar parallellt med Curses).' },
             { lvl: 8, name: 'Fear (Rank 1)', icon: 'fa-face-dizzy', desc: 'Livsavgörande CC.' },
             { lvl: 10, name: 'Create Healthstone', icon: 'fa-gem', desc: 'Nöd-healing sten.' },
             { lvl: 10, name: 'Drain Soul (Rank 1)', icon: 'fa-ghost', desc: 'Ger Soul Shards & mana regen.' },
             { lvl: 14, name: 'Drain Life (Rank 1)', icon: 'fa-hand-holding-hand', desc: 'Stärkt av Soul Siphon talent på WoW Forever!' },
-            { lvl: 20, name: 'Incinerate (New Spell)', icon: 'fa-flame', desc: 'WoW Forever Fire spell som gör extra skada om Immolate är aktiv.' },
-            { lvl: 30, name: 'Siphon Life (Talent)', icon: 'fa-droplet', desc: 'DoT som healary dig varje tick.' },
+            { lvl: 20, name: 'Incinerate (Fire Spell)', icon: 'fa-flame', desc: 'WoW Forever Fire spell som gör bonus skada om Immolate/Fire DoT är aktiv.' },
+            { lvl: 28, name: 'Shadowflame (Cone DoT)', icon: 'fa-dragon', desc: 'WoW Forever Custom Cone spell som applicerar en skadlig Shadow/Fire DoT.' },
+            { lvl: 30, name: 'Siphon Life (Talent)', icon: 'fa-droplet', desc: 'DoT som healing-tanka dig varje tick.' },
             { lvl: 40, name: 'Wrack (Custom Capstone)', icon: 'fa-biohazard', desc: 'WoW Forever 31-pt Affliction Channel: Tung skada & +10% DoT-skada på målet!' },
             { lvl: 40, name: 'Summon Felsteed', icon: 'fa-horse', desc: 'Gratis 60% mount!' },
             { lvl: 60, name: 'Summon Dreadsteed', icon: 'fa-horse-head', desc: '100% Epic mount quest.' }
