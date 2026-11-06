@@ -157,14 +157,14 @@
 
                 <!-- Global Search & Control -->
                 <div class="flex items-center gap-3">
-                    <div class="relative flex-1 md:w-64">
-                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
-                        <input type="text" id="global-search" placeholder="Sök spells, wands, WoW Forever QoL..." 
-                            class="w-full bg-slate-900/80 border border-borderbg rounded-lg pl-9 pr-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-purple-500 transition">
-                    </div>
-                    <button onclick="exportSingleFile()" class="flex items-center gap-1.5 bg-fel/20 hover:bg-fel/30 text-xs text-fel font-bold px-3 py-1.5 rounded-lg border border-fel/40 transition">
-                        <i class="fa-solid fa-file-arrow-down"></i> Spara Fil (.html)
-                    </button>
+                <div class="relative flex-1 md:w-64">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+                    <input type="text" id="global-search" placeholder="Sök spells, Wrack, Incinerate, Banes..." 
+                        class="w-full bg-slate-900/80 border border-borderbg rounded-lg pl-9 pr-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-purple-500 transition">
+                </div>
+                <button onclick="exportSingleFile()" class="flex items-center gap-1.5 bg-fel/20 hover:bg-fel/30 text-xs text-fel font-bold px-3 py-1.5 rounded-lg border border-fel/40 transition">
+                    <i class="fa-solid fa-file-arrow-down"></i> Spara Fil (.html)
+                </button>
                     <button id="pwa-manual-install" class="hidden md:flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-xs text-purple-300 px-3 py-1.5 rounded-lg border border-slate-700 transition">
                         <i class="fa-solid fa-mobile-screen-button"></i> App
                     </button>
@@ -248,7 +248,7 @@
                 <div class="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-purple-950/20 to-transparent pointer-events-none"></div>
                 <div class="flex items-start justify-between">
                     <div>
-                        <div class="text-xs uppercase tracking-wider text-fel font-bold mb-1">WoW Forever Leveling-Fas</div>
+                        <div class="text-xs uppercase tracking-wider text-fel font-bold mb-1">WoW Forever Dynamic Rotation</div>
                         <h2 id="phase-title" class="text-xl sm:text-2xl font-bold text-slate-100 gold-header">Leveling Fas 1-10: Starter & Brill</h2>
                         <p id="phase-description" class="text-sm text-slate-300 mt-2 max-w-3xl leading-relaxed">
                             Beskrivning av spelstil för denna nivån...
@@ -698,34 +698,31 @@
             }
         };
 
-        // Static Database Definitions (Tailored for WoW Forever)
+        // Static Database Definitions (Tailored for WoW Forever Custom Spells)
         const phaseData = [
-            { maxLvl: 10, title: 'Leveling Fas 1-10: Starter & Brill', desc: 'Prioritera Wand vid level 5! Använd Imp som damage support och spammar Shadow Bolt. Glöm inte kasta Corruption och Immolate i starten av varje strid.' },
-            { maxLvl: 20, title: 'Leveling Fas 10-20: Voidwalker & Wand Spike', desc: 'Vid level 10 får du din Voidwalker. Låt Voidwalker ta aggro, lägg alla DoTs (Corruption, Agony, Siphon Life ifall tillgänglig) och Wand ihjäl mobben.' },
-            { maxLvl: 30, title: 'Leveling Fas 20-30: Drain-Tanking Upplåsning', desc: 'Med 5/5 Fel Concentration vid level 24 kan du börja Drain-tanka! Du behöver inte längre vänta på Voidwalker aggro. Gör Soran\'ruk questen vid level 20.' },
-            { maxLvl: 40, title: 'Leveling Fas 30-40: Dual-Spec & Succubus Speed', desc: 'Lås upp Dual-Spec på WoW Forever vid Level 40! Använd Succubus för maximal solo-skada. Håll DoTs uppe på 2-3 mobs samtidigt och använd Life Tap kontinuerligt med Cannibalize.' },
-            { maxLvl: 50, title: 'Leveling Fas 40-50: Felsteed & Shadoweave Gear', desc: 'Grattis till din gratis Felsteed mount vid lvl 40! Med Shadoweave-setet gör dina DoTs och Drain Life enorm skada. 0 downtime!' },
-            { maxLvl: 60, title: 'Leveling Fas 50-60: Pre-Raid BiS & Endgame', desc: 'Avsluta i Plaguelands och Winterspring. Gör Warlock questen för Soul Harvester. Samla Felcloth och träna din maximala rank av alla spells!' }
+            { maxLvl: 10, title: 'Leveling Fas 1-10: Starter & Wand Spike', desc: 'Prioritera Wand vid level 5! Använd Imp som damage support och spammar Shadow Bolt. Corruption är instant vid 5/5 talent.' },
+            { maxLvl: 20, title: 'Leveling Fas 10-20: Voidwalker & Agony Banes', desc: 'Vid level 10 får du Voidwalker. På WoW Forever kan du stacka Bane of Agony OCH en utility Curse samtidigt på målet!' },
+            { maxLvl: 30, title: 'Leveling Fas 20-30: Drain-Tanking & Soul Siphon', desc: 'Med Fel Concentration (lvl 24) och Soul Siphon ökar Drain Life med upp till 36% skada/healing per aktiv DoT.' },
+            { maxLvl: 40, title: 'Leveling Fas 30-40: Dual-Spec & Incinerate Weaving', desc: 'Lås upp Dual-Spec vid Level 40! Testa Destruction med Incinerate + Firestone eller stanna Affliction för Wrack!' },
+            { maxLvl: 50, title: 'Leveling Fas 40-50: Wrack Capstone & Shadoweave', desc: 'Wrack (31-pt Affliction Capstone) kanaliserar tung shadow-skada och ökar alla andra DoTs med 10%!' },
+            { maxLvl: 60, title: 'Leveling Fas 50-60: Decimation & Pandemic Crits', desc: 'I endgame gör Pandemic att dina DoTs och Drains kan göra Critical Strikes! Decimation ger instant Soul Fire under 35% HP.' }
         ];
 
         const spellsDb = [
             { lvl: 1, name: 'Shadow Bolt (Rank 1)', icon: 'fa-bolt', desc: 'Huvudskada tidigt.' },
             { lvl: 1, name: 'Demon Skin (Rank 1)', icon: 'fa-shield-cat', desc: '+Armor & HP regen.' },
-            { lvl: 4, name: 'Corruption (Rank 1)', icon: 'fa-skull', desc: 'Din viktigaste DoT.' },
-            { lvl: 4, name: 'Curse of Weakness (Rank 1)', icon: 'fa-hand-dots', desc: 'Minskar fysisk skada.' },
-            { lvl: 6, name: 'Life Tap (Rank 1)', icon: 'fa-heart-circle-bolt', desc: 'Omvandlar HP till Mana!' },
-            { lvl: 8, name: 'Curse of Agony (Rank 1)', icon: 'fa-fire', desc: 'DoT med stegrande skada.' },
+            { lvl: 4, name: 'Corruption (Rank 1)', icon: 'fa-skull', desc: 'Din viktigaste DoT (Kan critta med Pandemic!).' },
+            { lvl: 4, name: 'Curse of Weakness', icon: 'fa-hand-dots', desc: 'Utility Curse (Kan stackas med Banes).' },
+            { lvl: 6, name: 'Life Tap (Rank 1)', icon: 'fa-heart-circle-bolt', desc: 'Omvandlar HP till Mana.' },
+            { lvl: 8, name: 'Bane of Agony (Rank 1)', icon: 'fa-fire', desc: 'Bane-kategori DoT (Kan stackas med Utility Curses).' },
             { lvl: 8, name: 'Fear (Rank 1)', icon: 'fa-face-dizzy', desc: 'Livsavgörande CC.' },
-            { lvl: 10, name: 'Create Healthstone (Minor)', icon: 'fa-gem', desc: 'Nöd-healing sten.' },
+            { lvl: 10, name: 'Create Healthstone', icon: 'fa-gem', desc: 'Nöd-healing sten.' },
             { lvl: 10, name: 'Drain Soul (Rank 1)', icon: 'fa-ghost', desc: 'Ger Soul Shards & mana regen.' },
-            { lvl: 12, name: 'Health Funnel (Rank 1)', icon: 'fa-notes-medical', desc: 'Läk din pet.' },
-            { lvl: 14, name: 'Drain Life (Rank 1)', icon: 'fa-hand-holding-hand', desc: 'Huvudkomponent i Drain Tanking!' },
-            { lvl: 18, name: 'Unending Breath', icon: 'fa-water', desc: 'Undervattensandning 10 min.' },
-            { lvl: 20, name: 'Ritual of Summoning', icon: 'fa-users', desc: 'Kalla gruppmedlemmar.' },
-            { lvl: 26, name: 'Curse of Tongues (Rank 1)', icon: 'fa-comment-slash', desc: 'Fördröjer fientliga cast times.' },
-            { lvl: 30, name: 'Siphon Life (Talent)', icon: 'fa-droplet', desc: 'DoT som stjäl HP.' },
+            { lvl: 14, name: 'Drain Life (Rank 1)', icon: 'fa-hand-holding-hand', desc: 'Stärkt av Soul Siphon talent på WoW Forever!' },
+            { lvl: 20, name: 'Incinerate (New Spell)', icon: 'fa-flame', desc: 'WoW Forever Fire spell som gör extra skada om Immolate är aktiv.' },
+            { lvl: 30, name: 'Siphon Life (Talent)', icon: 'fa-droplet', desc: 'DoT som healary dig varje tick.' },
+            { lvl: 40, name: 'Wrack (Custom Capstone)', icon: 'fa-biohazard', desc: 'WoW Forever 31-pt Affliction Channel: Tung skada & +10% DoT-skada på målet!' },
             { lvl: 40, name: 'Summon Felsteed', icon: 'fa-horse', desc: 'Gratis 60% mount!' },
-            { lvl: 50, name: 'Inferno', icon: 'fa-volcano', desc: 'Kallar ner en Infernal.' },
             { lvl: 60, name: 'Summon Dreadsteed', icon: 'fa-horse-head', desc: '100% Epic mount quest.' }
         ];
 
@@ -934,23 +931,23 @@
             if (state.level < 10) {
                 steps = [
                     { step: '1', title: 'Immolate', desc: 'Öppna på max range' },
-                    { step: '2', title: 'Corruption', desc: 'Lägg direkt efter' },
+                    { step: '2', title: 'Corruption', desc: 'Instant cast (5/5 Talent)' },
                     { step: '3', title: 'Shadow Bolt', desc: 'Casta 1-2 ggr' },
-                    { step: '4', title: 'Melee / Wand', desc: 'Avsluta mobben' }
+                    { step: '4', title: 'Wand Shoot', desc: 'Avsluta mobben' }
                 ];
-            } else if (state.level < 24) {
+            } else if (state.level < 40) {
                 steps = [
-                    { step: '1', title: 'Pet Attack', desc: 'Voidwalker tar aggro' },
-                    { step: '2', title: 'Curse of Agony', desc: 'Applicera DoT' },
-                    { step: '3', title: 'Corruption', desc: 'Instant/Snabb cast' },
-                    { step: '4', title: 'Wand Shoot', desc: '100% Wand till död' }
+                    { step: '1', title: 'Bane of Agony', desc: 'Lägg Bane (stackar m. Curses)' },
+                    { step: '2', title: 'Corruption', desc: 'Instant DoT' },
+                    { step: '3', title: 'Drain Life', desc: 'Drain-tanka m. Soul Siphon buff' },
+                    { step: '4', title: 'Life Tap / Drain Soul', desc: 'Återställ mana' }
                 ];
             } else {
                 steps = [
-                    { step: '1', title: 'Corruption', desc: 'Pull direkt själv' },
-                    { step: '2', title: 'Curse of Agony', desc: 'Multi-dot nästa mob' },
-                    { step: '3', title: 'Drain Life', desc: 'Drain-tanka utan lag' },
-                    { step: '4', title: 'Life Tap + Drain Soul', desc: 'Återställ mana (Rank 1)' }
+                    { step: '1', title: 'Corruption & Agony', desc: 'Multi-DoT 2-3 mål' },
+                    { step: '2', title: 'Wrack (New)', desc: 'Kanalisera för +10% DoT boost' },
+                    { step: '3', title: 'Drain Life', desc: 'Drain-tanka utan interruption' },
+                    { step: '4', title: 'Decimation Exec', desc: 'Instant Soul Fire under 35% HP' }
                 ];
             }
 
