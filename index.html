@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undead Warlock Dynamic Leveling 1-60 | WoW Forever Edition</title>
+    <title>Undead Shadow Priest Dynamic Leveling 1-60 | WoW Forever Edition</title>
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#0a0910">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="WarlockForever">
-    <meta name="description" content="Klassisk Undead Warlock Leveling Guide anpassad för WoW Forever servern med Dual-Spec support och offline PWA-funktion.">
+    <meta name="apple-mobile-web-app-title" content="PriestForever">
+    <meta name="description" content="Klassisk Undead Shadow Priest Leveling Guide anpassad för WoW Forever servern med Dual-Spec support och offline PWA-funktion.">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -24,15 +24,15 @@
                             dark: '#4a0000',
                             light: '#b22222'
                         },
-                        fel: {
-                            DEFAULT: '#22c55e',
-                            glow: '#4ade80',
-                            dark: '#15803d'
+                        priest: {
+                            DEFAULT: '#a855f7',
+                            glow: '#c084fc',
+                            dark: '#6b21a8'
                         },
-                        shadow: {
-                            DEFAULT: '#9333ea',
-                            dark: '#581c87',
-                            light: '#c084fc'
+                        holy: {
+                            DEFAULT: '#f59e0b',
+                            glow: '#fbbf24',
+                            dark: '#b45309'
                         },
                         darkbg: '#0a0910',
                         cardbg: '#13111c',
@@ -75,13 +75,13 @@
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #9333ea;
+            background: #a855f7;
         }
-        .fel-glow {
-            text-shadow: 0 0 10px rgba(34, 197, 94, 0.6);
+        .priest-glow {
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.6);
         }
-        .purple-glow {
-            box-shadow: 0 0 15px rgba(147, 51, 234, 0.25);
+        .holy-glow {
+            text-shadow: 0 0 10px rgba(245, 158, 11, 0.6);
         }
         .gold-header {
             color: #f59e0b;
@@ -93,9 +93,9 @@
             width: 22px;
             height: 22px;
             border-radius: 50%;
-            background: #22c55e;
+            background: #a855f7;
             cursor: pointer;
-            box-shadow: 0 0 10px #22c55e;
+            box-shadow: 0 0 10px #a855f7;
             border: 2px solid #ffffff;
         }
     </style>
@@ -108,18 +108,18 @@
     </div>
 
     <!-- PWA Installation Bar -->
-    <div id="pwa-install-banner" class="hidden bg-gradient-to-r from-purple-900 via-darkbg to-horde-dark border-b border-purple-500/30 px-4 py-3 flex justify-between items-center text-sm shadow-xl z-50">
+    <div id="pwa-install-banner" class="hidden bg-gradient-to-r from-purple-950 via-darkbg to-horde-dark border-b border-purple-500/30 px-4 py-3 flex justify-between items-center text-sm shadow-xl z-50">
         <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-lg bg-fel-dark/40 border border-fel/50 flex items-center justify-center text-fel text-xl">
-                <i class="fa-solid fa-skull"></i>
+            <div class="w-10 h-10 rounded-lg bg-priest-dark/40 border border-priest/50 flex items-center justify-center text-priest text-xl">
+                <i class="fa-solid fa-ankh"></i>
             </div>
             <div>
-                <div class="font-bold text-slate-100">Installera WoW Forever Warlock PWA</div>
+                <div class="font-bold text-slate-100">Installera WoW Forever Priest PWA</div>
                 <div class="text-xs text-slate-400">Lägg till på hemskärmen för blixtsnabb offline-åtkomst</div>
             </div>
         </div>
         <div class="flex items-center gap-2">
-            <button id="pwa-install-btn" class="bg-fel hover:bg-fel-dark text-slate-950 font-bold text-xs px-3 py-2 rounded-md transition duration-200 flex items-center gap-1.5 shadow-lg">
+            <button id="pwa-install-btn" class="bg-priest hover:bg-priest-dark text-slate-950 font-bold text-xs px-3 py-2 rounded-md transition duration-200 flex items-center gap-1.5 shadow-lg">
                 <i class="fa-solid fa-download"></i> Installera
             </button>
             <button id="pwa-close-btn" class="text-slate-400 hover:text-white px-2 py-1 text-lg">
@@ -136,12 +136,12 @@
                 <!-- Logo & Title -->
                 <div class="flex items-center justify-between">
                     <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-lg bg-purple-950 border border-purple-600/50 flex items-center justify-center text-purple-400 text-2xl shadow-md">
-                            <i class="fa-solid fa-hand-sparkles"></i>
+                        <div class="w-10 h-10 rounded-lg bg-purple-950 border border-purple-600/50 flex items-center justify-center text-purple-300 text-2xl shadow-md">
+                            <i class="fa-solid fa-eye"></i>
                         </div>
                         <div>
                             <h1 class="font-extrabold text-lg sm:text-xl text-slate-100 leading-tight flex items-center gap-2">
-                                Undead Warlock <span class="text-xs px-2 py-0.5 rounded bg-horde/40 text-red-300 border border-horde/50">WoW Forever Edition</span>
+                                Undead Shadow Priest <span class="text-xs px-2 py-0.5 rounded bg-horde/40 text-red-300 border border-horde/50">WoW Forever Edition</span>
                             </h1>
                             <p class="text-xs text-slate-400">Exklusiv Leveling & Dual-Spec Guide (WoW Forever Server)</p>
                         </div>
@@ -150,7 +150,7 @@
                     <!-- PWA Quick Status Badge -->
                     <div class="flex items-center gap-2 md:hidden">
                         <span id="pwa-status-mobile" class="text-xs px-2 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700">
-                            <i class="fa-solid fa-bolt text-fel text-xs"></i> Ready
+                            <i class="fa-solid fa-bolt text-priest text-xs"></i> Ready
                         </span>
                     </div>
                 </div>
@@ -159,10 +159,10 @@
                 <div class="flex items-center gap-3">
                 <div class="relative flex-1 md:w-64">
                     <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
-                    <input type="text" id="global-search" placeholder="Sök spells, Wrack, Incinerate, Banes..." 
+                    <input type="text" id="global-search" placeholder="Sök spells, Mind Flay, Devouring Plague, Wand..." 
                         class="w-full bg-slate-900/80 border border-borderbg rounded-lg pl-9 pr-3 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-purple-500 transition">
                 </div>
-                <button onclick="exportSingleFile()" class="flex items-center gap-1.5 bg-fel/20 hover:bg-fel/30 text-xs text-fel font-bold px-3 py-1.5 rounded-lg border border-fel/40 transition">
+                <button onclick="exportSingleFile()" class="flex items-center gap-1.5 bg-priest/20 hover:bg-priest/30 text-xs text-priest-glow font-bold px-3 py-1.5 rounded-lg border border-priest/40 transition">
                     <i class="fa-solid fa-file-arrow-down"></i> Spara Fil (.html)
                 </button>
                     <button id="pwa-manual-install" class="hidden md:flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-xs text-purple-300 px-3 py-1.5 rounded-lg border border-slate-700 transition">
@@ -182,12 +182,12 @@
             <div class="flex items-center gap-4 w-full lg:w-2/3">
                 <div class="flex items-center gap-2 bg-cardbg px-3 py-1.5 rounded-lg border border-purple-900/40">
                     <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Level</span>
-                    <span id="current-level-display" class="text-2xl font-black text-fel fel-glow min-w-[36px] text-center">60</span>
+                    <span id="current-level-display" class="text-2xl font-black text-priest priest-glow min-w-[36px] text-center">60</span>
                 </div>
 
                 <div class="flex-1 flex flex-col justify-center">
                     <input type="range" id="level-slider" min="1" max="60" value="60" 
-                        class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-fel range-slider">
+                        class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-priest range-slider">
                     <div class="flex justify-between text-[10px] text-slate-500 mt-1 font-mono">
                         <span>Lvl 1</span>
                         <span>Lvl 15</span>
@@ -204,10 +204,9 @@
                 <button onclick="setLevel(1)" class="lvl-btn px-2.5 py-1 text-xs font-semibold rounded bg-slate-800 hover:bg-purple-900 text-slate-300 border border-slate-700 transition">L1</button>
                 <button onclick="setLevel(10)" class="lvl-btn px-2.5 py-1 text-xs font-semibold rounded bg-slate-800 hover:bg-purple-900 text-slate-300 border border-slate-700 transition">L10</button>
                 <button onclick="setLevel(20)" class="lvl-btn px-2.5 py-1 text-xs font-semibold rounded bg-slate-800 hover:bg-purple-900 text-slate-300 border border-slate-700 transition">L20</button>
-                <button onclick="setLevel(24)" class="lvl-btn px-2.5 py-1 text-xs font-semibold rounded bg-slate-800 hover:bg-purple-900 text-slate-300 border border-slate-700 transition">L24</button>
-                <button onclick="setLevel(30)" class="lvl-btn px-2.5 py-1 text-xs font-semibold rounded bg-slate-800 hover:bg-purple-900 text-slate-300 border border-slate-700 transition">L30</button>
-                <button onclick="setLevel(40)" class="lvl-btn px-2.5 py-1 text-xs font-semibold rounded font-bold bg-amber-950 text-amber-400 border border-amber-600/50 transition">L40 Dual-Spec</button>
-                <button onclick="setLevel(60)" class="lvl-btn px-2.5 py-1 text-xs font-semibold rounded bg-fel/20 text-fel border border-fel/40 transition">L60</button>
+                <button onclick="setLevel(24)" class="lvl-btn px-2.5 py-1 text-xs font-semibold rounded bg-slate-800 hover:bg-purple-900 text-slate-300 border border-slate-700 transition">L24 Wand</button>
+                <button onclick="setLevel(40)" class="lvl-btn px-2.5 py-1 text-xs font-semibold rounded font-bold bg-amber-950 text-amber-400 border border-amber-600/50 transition">L40 Dual-Spec & Shadowform</button>
+                <button onclick="setLevel(60)" class="lvl-btn px-2.5 py-1 text-xs font-semibold rounded bg-priest/20 text-priest-glow border border-priest/40 transition">L60</button>
             </div>
 
         </div>
@@ -216,7 +215,7 @@
     <!-- Navigation Tabs -->
     <nav class="bg-cardbg border-b border-borderbg overflow-x-auto">
         <div class="max-w-7xl mx-auto flex space-x-1 px-4 sm:px-6">
-            <button data-tab="tab-spells" class="nav-tab active-tab flex items-center gap-2 px-4 py-3 text-xs sm:text-sm font-semibold border-b-2 border-fel text-fel whitespace-nowrap transition">
+            <button data-tab="tab-spells" class="nav-tab active-tab flex items-center gap-2 px-4 py-3 text-xs sm:text-sm font-semibold border-b-2 border-priest text-priest-glow whitespace-nowrap transition">
                 <i class="fa-solid fa-wand-magic-sparkles"></i> Spells & Rotation
             </button>
             <button data-tab="tab-talents" class="nav-tab flex items-center gap-2 px-4 py-3 text-xs sm:text-sm font-semibold border-b-2 border-transparent text-slate-400 hover:text-slate-200 whitespace-nowrap transition">
@@ -248,8 +247,8 @@
                 <div class="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-purple-950/20 to-transparent pointer-events-none"></div>
                 <div class="flex items-start justify-between">
                     <div>
-                        <div class="text-xs uppercase tracking-wider text-fel font-bold mb-1">WoW Forever Dynamic Rotation</div>
-                        <h2 id="phase-title" class="text-xl sm:text-2xl font-bold text-slate-100 gold-header">Leveling Fas 1-10: Starter & Brill</h2>
+                        <div class="text-xs uppercase tracking-wider text-priest-glow font-bold mb-1">WoW Forever Dynamic Rotation</div>
+                        <h2 id="phase-title" class="text-xl sm:text-2xl font-bold text-slate-100 gold-header">Leveling Fas 1-10: Starter & Wand Rush</h2>
                         <p id="phase-description" class="text-sm text-slate-300 mt-2 max-w-3xl leading-relaxed">
                             Beskrivning av spelstil för denna nivån...
                         </p>
@@ -271,7 +270,7 @@
             <div class="bg-cardbg border border-borderbg rounded-xl p-5 shadow-lg">
                 <div class="flex items-center justify-between mb-4">
                     <h3 class="text-lg font-bold text-slate-100 flex items-center gap-2">
-                        <i class="fa-solid fa-book-bookmark text-fel"></i> Tillgängliga Spells & Ranks
+                        <i class="fa-solid fa-book-bookmark text-priest"></i> Tillgängliga Spells & Ranks
                     </h3>
                     <span id="spell-count" class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full font-mono">0 spells upplåsta</span>
                 </div>
@@ -282,15 +281,15 @@
             </div>
         </section>
 
-        <!-- TAB 2: TALENTS (AFFLICTION & DUAL-SPEC) -->
+        <!-- TAB 2: TALENTS (SHADOW & DUAL-SPEC) -->
         <section id="tab-talents" class="tab-content hidden space-y-6">
             
             <div class="bg-cardbg border border-borderbg rounded-xl p-5 shadow-lg">
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-borderbg pb-4 mb-4">
                     <div>
-                        <h2 class="text-xl font-bold text-slate-100 gold-header">Affliction Drain-Tanking & WoW Forever Dual-Spec</h2>
+                        <h2 class="text-xl font-bold text-slate-100 gold-header">Shadow Wand Spec & WoW Forever Dual-Spec</h2>
                         <p class="text-xs text-slate-400 mt-1">
-                            På WoW Forever låser du upp **Dual Specialization vid Level 40**. Ha en ren Affliction Drain-tank spec för solo-leveling och en Demonology/Destro spec för instant Dungeon Runs! Tillgängliga talent-poäng: <span id="talent-points-available" class="text-fel font-bold">51 poäng</span>.
+                            På WoW Forever låser du upp **Dual Specialization vid Level 40**. Ha en ren **Shadow Wand / Vampiric Spec** för blixtsnabb solo-leveling och en **Holy/Discipline Spec** för instanta Dungeon Healing-grupper! Tillgängliga talent-poäng: <span id="talent-points-available" class="text-priest-glow font-bold">51 poäng</span>.
                         </p>
                     </div>
                     <div class="flex items-center gap-2">
@@ -306,29 +305,29 @@
                 <!-- Talent Trees Container Grid -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     
-                    <!-- Affliction Tree -->
+                    <!-- Shadow Tree -->
                     <div class="bg-slate-950/80 border border-purple-900/40 rounded-xl p-4">
                         <div class="flex justify-between items-center mb-4 pb-2 border-b border-purple-900/30">
                             <h3 class="font-bold text-purple-300 flex items-center gap-2">
-                                <i class="fa-solid fa-skull text-purple-500"></i> Affliction Tree (Primary Solo)
+                                <i class="fa-solid fa-eye text-purple-500"></i> Shadow Tree (Primary Solo Leveling)
                             </h3>
-                            <span id="affliction-spent" class="text-xs font-mono font-bold bg-purple-950 text-purple-300 px-2 py-1 rounded">0 Poäng</span>
+                            <span id="shadow-spent" class="text-xs font-mono font-bold bg-purple-950 text-purple-300 px-2 py-1 rounded">0 Poäng</span>
                         </div>
-                        <div id="affliction-talents" class="space-y-3">
+                        <div id="shadow-talents" class="space-y-3">
                             <!-- Talent Items dynamically created -->
                         </div>
                     </div>
 
-                    <!-- Demonology Tree -->
+                    <!-- Holy/Discipline Tree -->
                     <div class="bg-slate-950/80 border border-slate-800 rounded-xl p-4">
                         <div class="flex justify-between items-center mb-4 pb-2 border-b border-slate-800">
-                            <h3 class="font-bold text-emerald-400 flex items-center gap-2">
-                                <i class="fa-solid fa-ghost text-emerald-500"></i> Demonology Tree (Secondary/Dungeon)
+                            <h3 class="font-bold text-amber-400 flex items-center gap-2">
+                                <i class="fa-solid fa-cross text-amber-500"></i> Discipline / Holy Tree (Secondary Dungeon Spec)
                             </h3>
-                            <span id="demonology-spent" class="text-xs font-mono font-bold bg-slate-900 text-emerald-400 px-2 py-1 rounded">0 Poäng</span>
+                            <span id="holy-spent" class="text-xs font-mono font-bold bg-slate-900 text-amber-400 px-2 py-1 rounded">0 Poäng</span>
                         </div>
-                        <div id="demonology-talents" class="space-y-3">
-                            <!-- Demonology Talents dynamically created -->
+                        <div id="holy-talents" class="space-y-3">
+                            <!-- Holy/Discipline Talents dynamically created -->
                         </div>
                     </div>
 
@@ -345,21 +344,21 @@
                     <i class="fa-solid fa-chart-line text-amber-500"></i> Stat-Prioriteringar för Leveling
                 </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                    <div class="bg-slate-900/80 p-3.5 rounded-lg border border-blue-900/40">
+                        <div class="text-xs font-bold text-blue-400 uppercase tracking-wider">1. Spirit (Spirit Tap)</div>
+                        <div class="text-xs text-slate-300 mt-1">När du dödar ett mål ger **Spirit Tap** +100% Spirit i 15 sekunder! Ger full mana mellan mobsen.</div>
+                    </div>
                     <div class="bg-slate-900/80 p-3.5 rounded-lg border border-purple-900/40">
-                        <div class="text-xs font-bold text-purple-400 uppercase tracking-wider">1. Shadow Damage</div>
-                        <div class="text-xs text-slate-300 mt-1">Ökar skadan på DoTs och healingen på Drain Life. Prioritera "of Shadow Wrath" gear på WoW Forever AH!</div>
+                        <div class="text-xs font-bold text-purple-400 uppercase tracking-wider">2. Shadow / Spell Damage</div>
+                        <div class="text-xs text-slate-300 mt-1">Ökar skadan på Mind Blast, SW: Pain, Mind Flay och Vampiric Touch. Snabbare död = mindre mana behövs.</div>
                     </div>
                     <div class="bg-slate-900/80 p-3.5 rounded-lg border border-red-900/40">
-                        <div class="text-xs font-bold text-red-400 uppercase tracking-wider">2. Stamina</div>
-                        <div class="text-xs text-slate-300 mt-1">Hälsa = Mana via Life Tap. Mer HP låter dig tanka 3-4 mobs samtidigt utan risken att dö.</div>
-                    </div>
-                    <div class="bg-slate-900/80 p-3.5 rounded-lg border border-blue-900/40">
-                        <div class="text-xs font-bold text-blue-400 uppercase tracking-wider">3. Spirit</div>
-                        <div class="text-xs text-slate-300 mt-1">Ger enorm mana-regeneration efter att du dödar mobs tack vare Imp. Drain Soul talent.</div>
+                        <div class="text-xs font-bold text-red-400 uppercase tracking-wider">3. Stamina</div>
+                        <div class="text-xs text-slate-300 mt-1">Ger tillräckligt med HP för att tåla när skölden brister eller när du blir gankad i World PvP.</div>
                     </div>
                     <div class="bg-slate-900/80 p-3.5 rounded-lg border border-slate-700">
                         <div class="text-xs font-bold text-slate-300 uppercase tracking-wider">4. Intellect</div>
-                        <div class="text-xs text-slate-300 mt-1">Större manapool i stridens start. Mindre viktig än Stamina eftersom du har Life Tap.</div>
+                        <div class="text-xs text-slate-300 mt-1">Ger större start-manapool. Mindre viktig än Spirit under levlingen tack vare Wand-rotationsmodellen.</div>
                     </div>
                 </div>
             </div>
@@ -370,7 +369,7 @@
                 <!-- Wand Milestones -->
                 <div class="bg-cardbg border border-borderbg rounded-xl p-5 shadow-lg">
                     <h3 class="text-lg font-bold text-slate-100 mb-3 flex items-center justify-between">
-                        <span class="flex items-center gap-2"><i class="fa-solid fa-wand-sparkles text-fel"></i> Alla Wand-Milestones (1-60)</span>
+                        <span class="flex items-center gap-2"><i class="fa-solid fa-wand-sparkles text-priest-glow"></i> Alla Wand-Milestones (1-60)</span>
                     </h3>
                     <div id="wand-list" class="space-y-2.5">
                         <!-- Dynamic wands injected here -->
@@ -387,21 +386,21 @@
                             <i class="fa-solid fa-shirt text-purple-400 text-lg mt-0.5"></i>
                             <div>
                                 <h4 class="text-xs font-bold text-slate-200">Cloth-plagg & AH Gear</h4>
-                                <p class="text-xs text-slate-400 mt-0.5">Köp eller sy egna Brown Linen Robe och Heavy Linen Gloves tidigt. Håll utkik efter "of the Eagle" (Int/Spirit) eller "of Stamina" på Auction House.</p>
+                                <p class="text-xs text-slate-400 mt-0.5">Köp eller sy egna Brown Linen Robe och Heavy Linen Gloves tidigt. Håll utkik efter "of Spirit" eller "of the Eagle" på Auction House.</p>
                             </div>
                         </div>
-                        <div class="p-3 bg-slate-900/70 border border-fel-dark/40 rounded-lg flex items-start gap-3">
-                            <i class="fa-solid fa-bolt text-fel text-lg mt-0.5"></i>
+                        <div class="p-3 bg-slate-900/70 border border-purple-500/40 rounded-lg flex items-start gap-3">
+                            <i class="fa-solid fa-bolt text-priest-glow text-lg mt-0.5"></i>
                             <div>
-                                <h4 class="text-xs font-bold text-slate-200">Vändpunkten: Wands</h4>
-                                <p class="text-xs text-slate-400 mt-0.5">Skaffa Lesser Magic Wand vid Lvl 5 (via Tailoring/Enchanting). Byt till Greater Magic Wand vid Lvl 13. Det ökar din skada med 300% utan manakostnad!</p>
+                                <h4 class="text-xs font-bold text-slate-200">Wand-Kungen: 5/5 Wand Specialization</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">Skaffa Lesser Magic Wand vid Lvl 5 (via Tailoring/Enchanting). Med 5/5 Wand Spec i Discipline gör du +25% wand-skada helt utan mana-kostnad!</p>
                             </div>
                         </div>
                         <div class="p-3 bg-slate-900/70 border border-slate-800 rounded-lg flex items-start gap-3">
                             <i class="fa-solid fa-gem text-amber-400 text-lg mt-0.5"></i>
                             <div>
-                                <h4 class="text-xs font-bold text-slate-200">BiS Early Quests & Custom Library Items</h4>
-                                <p class="text-xs text-slate-400 mt-0.5">Gör Orb of Soran'ruk questen vid Lvl 20 för den fantastiska off-handen i BFD/SFK. Samla även WoW Forevers custom library-böcker för tidiga smycken!</p>
+                                <h4 class="text-xs font-bold text-slate-200">BiS Class Quests & Custom Library Items</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">Gör Priest Class Quests vid Lvl 10 (Desperate Prayer/Touch of Weakness) och samla WoW Forevers custom library-böcker för tidiga smycken!</p>
                             </div>
                         </div>
                     </div>
@@ -426,30 +425,30 @@
         <section id="tab-professions" class="tab-content hidden space-y-6">
             
             <div class="bg-cardbg border border-borderbg rounded-xl p-5 shadow-lg">
-                <h2 class="text-xl font-bold text-slate-100 gold-header mb-1">Professions & Warlock Crafting Guide</h2>
-                <p class="text-xs text-slate-400 mb-4">Yrkesguiden och tränar-rekommendationerna anpassade för WoW Forever ekonomi och spelstil.</p>
+                <h2 class="text-xl font-bold text-slate-100 gold-header mb-1">Professions & Priest Crafting Guide</h2>
+                <p class="text-xs text-slate-400 mb-4">Yrkesguiden och tränar-rekommendationerna anpassade för WoW Forever ekonomi och Priest-spelstil.</p>
 
                 <!-- Best Builds for Professions -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                     <div class="bg-slate-900 p-4 rounded-xl border border-purple-900/40">
                         <div class="text-xs font-bold text-purple-400 uppercase tracking-wider mb-1">Best in Slot Leveling</div>
                         <div class="text-sm font-bold text-slate-100">Tailoring + Enchanting</div>
-                        <p class="text-xs text-slate-400 mt-2">Sy din egen Shadow Damage-utrustning (Shadoweave) & disenchanta gröna drops för wand-material.</p>
+                        <p class="text-xs text-slate-400 mt-2">Sy din egen Truefaith Robe / Shadoweave utrustning & disenchanta för att tillverka wands.</p>
                     </div>
                     <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
                         <div class="text-xs font-bold text-red-400 uppercase tracking-wider mb-1">World PvP Focus</div>
                         <div class="text-sm font-bold text-slate-100">Mining + Engineering</div>
-                        <p class="text-xs text-slate-400 mt-2">Iron Grenades för extra AoE-stun, Spellpower Goggles samt Gnomish/Goblin tillbehör.</p>
+                        <p class="text-xs text-slate-400 mt-2">Iron Grenades för extra AoE-stun i Silence/Psychic Scream kombor & Gnomish/Goblin prylar.</p>
                     </div>
                     <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
                         <div class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1">Självförsörjande</div>
                         <div class="text-sm font-bold text-slate-100">Herbalism + Alchemy</div>
-                        <p class="text-xs text-slate-400 mt-2">Brygg dina egna Elixirs of Shadow Power, Greater Healing Potions och Mana Potions.</p>
+                        <p class="text-xs text-slate-400 mt-2">Brygg Elixirs of Shadow Power, Greater Mana Potions och Troll's Blood Potions.</p>
                     </div>
                     <div class="bg-slate-900 p-4 rounded-xl border border-slate-800">
                         <div class="text-xs font-bold text-amber-400 uppercase tracking-wider mb-1">WoW Forever Economy</div>
                         <div class="text-sm font-bold text-slate-100">Tailoring + Mining/Herb</div>
-                        <p class="text-xs text-slate-400 mt-2">Sy väskor och sälj material på AH. Du sparar 100g vid Lvl 40 tack vare gratis Warlock mount!</p>
+                        <p class="text-xs text-slate-400 mt-2">Sy och sälj bags på AH under launch-veckan för att finansiera din Level 40 Mount & Dual-Spec!</p>
                     </div>
                 </div>
 
@@ -473,8 +472,8 @@
                                 <span class="text-slate-400">+14 Shadow Damage</span>
                             </div>
                             <div class="p-2.5 bg-slate-900 rounded border border-slate-800 flex justify-between items-center">
-                                <div><span class="font-bold text-purple-300">Robe of Power</span> (Lvl 33)</div>
-                                <span class="text-slate-400">+12 Spell Power</span>
+                                <div><span class="font-bold text-amber-300">Truefaith Robe (BiS L60)</span> (Lvl 60)</div>
+                                <span class="text-slate-400">+73 Healing / Regenerate Mana</span>
                             </div>
                         </div>
                     </div>
@@ -487,16 +486,16 @@
                             <div class="p-3 bg-slate-900 rounded border border-slate-800">
                                 <div class="font-bold text-slate-200 flex justify-between">
                                     <span>First Aid Progression</span>
-                                    <span class="text-fel font-mono">Bandage Target</span>
+                                    <span class="text-priest-glow font-mono">Heavy Runecloth Bandage</span>
                                 </div>
-                                <p class="text-slate-400 mt-1">Kombinera First Aid med Life Tap + Cannibalize för 0 downtime under leveling!</p>
+                                <p class="text-slate-400 mt-1">Spara din mana genom att bandage-heala dig själv bakom Power Word: Shield eller under Psychic Scream!</p>
                             </div>
                             <div class="p-3 bg-slate-900 rounded border border-slate-800">
                                 <div class="font-bold text-slate-200 flex justify-between">
-                                    <span>Mana Regen Mat/Oils</span>
-                                    <span class="text-amber-400 font-mono">+8 MP5</span>
+                                    <span>Spirit & Mana Buff Food</span>
+                                    <span class="text-amber-400 font-mono">+12 Spirit / MP5</span>
                                 </div>
-                                <p class="text-slate-400 mt-1">Nightfin Soup / Sagefish Oil: Ger 8s MP5. Perfekt för konstant casting utan drick-pauser!</p>
+                                <p class="text-slate-400 mt-1">Nightfin Soup & Monster Omelet: Ger massiv Spirit som multipliceras av din Spirit Tap talent!</p>
                             </div>
                         </div>
                     </div>
@@ -507,23 +506,23 @@
             <!-- Undead Trainers List -->
             <div class="bg-cardbg border border-borderbg rounded-xl p-5 shadow-lg">
                 <h3 class="text-lg font-bold text-slate-100 mb-3 flex items-center gap-2">
-                    <i class="fa-solid fa-map-location-dot text-horde-light"></i> Undead Tränare & Locations (Horde)
+                    <i class="fa-solid fa-map-location-dot text-horde-light"></i> Undead Priest Tränare & Locations (Horde)
                 </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
                     <div class="p-3 bg-slate-900 rounded border border-slate-800">
                         <div class="font-bold text-slate-200">Deathknell (1-6)</div>
-                        <div class="text-purple-400 font-medium">Maximillion (Warlock Trainer)</div>
+                        <div class="text-purple-400 font-medium">Dark Cleric Duesten</div>
                         <div class="text-slate-500 mt-1">Inuti kyrkan i starter-zonen.</div>
                     </div>
                     <div class="p-3 bg-slate-900 rounded border border-slate-800">
                         <div class="font-bold text-slate-200">Brill (6-12)</div>
-                        <div class="text-purple-400 font-medium">Rupert Boch (Warlock Trainer)</div>
-                        <div class="text-slate-500 mt-1">Gallows End Tavern källare.</div>
+                        <div class="text-purple-400 font-medium">Dark Cleric Beryl</div>
+                        <div class="text-slate-500 mt-1">Gallows End Tavern övervåning.</div>
                     </div>
                     <div class="p-3 bg-slate-900 rounded border border-slate-800">
                         <div class="font-bold text-slate-200">Undercity (12-60)</div>
-                        <div class="text-purple-400 font-medium">Magic Quarter Warlocks</div>
-                        <div class="text-slate-500 mt-1">Träna alla demon-spells & class quests här.</div>
+                        <div class="text-purple-400 font-medium">War Quarter / Undercity Priests</div>
+                        <div class="text-slate-500 mt-1">Träna Devouring Plague & Shadowguard här!</div>
                     </div>
                 </div>
             </div>
@@ -546,15 +545,15 @@
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 my-4">
                     <div class="p-3 bg-slate-900 rounded-lg border border-slate-800">
                         <div class="text-xs font-bold text-slate-300">SERVER RATES & XP</div>
-                        <div class="text-sm font-bold text-fel">1x Custom Vanilla Engine</div>
+                        <div class="text-sm font-bold text-priest-glow">1x Custom Vanilla Engine</div>
                     </div>
                     <div class="p-3 bg-slate-900 rounded-lg border border-amber-900/50">
                         <div class="text-xs font-bold text-amber-400">Dual Specialization</div>
-                        <div class="text-xs text-slate-400 mt-0.5">Låses upp vid level 40. Gör att du kan skifta mellan Affliction Drain-Tank solo spec och Demonology/Destro för dungeons.</div>
+                        <div class="text-xs text-slate-400 mt-0.5">Låses upp vid level 40. Gör att du kan växla mellan Shadow Wand Solo spec och Holy/Disc Dungeon Healing spec direkt!</div>
                     </div>
                     <div class="p-3 bg-slate-900 rounded-lg border border-slate-800">
-                        <div class="text-xs font-bold text-slate-300">Ekonomi & Mount-Guld</div>
-                        <div class="text-xs text-slate-400 mt-0.5">Warlocks sparar ~100g vid Lvl 40 tack vare gratis Felsteed quest! Sälj alt Linen/Silk Cloth på AH dag 1-3.</div>
+                        <div class="text-xs font-bold text-slate-300">Undead Priests på WoW Forever</div>
+                        <div class="text-xs text-slate-400 mt-0.5">Du får tillgång till **Devouring Plague** (kraftfull DoT) och **Shadowguard** (skadande orber) exklusivt för Undead!</div>
                     </div>
                 </div>
 
@@ -562,7 +561,7 @@
                 <div class="p-3 bg-purple-950/40 border border-purple-500/40 rounded-lg text-xs text-purple-200 flex items-center gap-3">
                     <i class="fa-solid fa-book-open text-purple-400 text-xl"></i>
                     <div>
-                        <span class="font-bold">WoW Forever Custom Library Quests:</span> Håll ögonen öppna efter glödande böcker i Tirisfal, Silverpine och Barrens. De ger tidiga stat-smycken (rings & necks) som annars saknas i tidiga skedet!
+                        <span class="font-bold">WoW Forever Custom Library Quests:</span> Håll ögonen öppna efter glödande böcker i Tirisfal, Silverpine och Barrens. De ger tidiga stat-smycken (rings & necks med Spirit/Spell Power)!
                     </div>
                 </div>
             </div>
@@ -570,7 +569,7 @@
             <!-- Optimal Zone Route (Accordion / Cards) -->
             <div class="bg-cardbg border border-borderbg rounded-xl p-5 shadow-lg">
                 <h3 class="text-lg font-bold text-slate-100 mb-4 flex items-center gap-2">
-                    <i class="fa-solid fa-map-location text-fel"></i> Optimal Undead Leveling Rutt (1-60)
+                    <i class="fa-solid fa-map-location text-priest-glow"></i> Optimal Undead Priest Leveling Rutt (1-60)
                 </h3>
                 <div id="zone-route-container" class="space-y-3">
                     <!-- Zone Route items dynamically rendered -->
@@ -580,29 +579,29 @@
             <!-- Interactive Launch Checklist -->
             <div class="bg-cardbg border border-borderbg rounded-xl p-5 shadow-lg">
                 <h3 class="text-lg font-bold text-slate-100 mb-3 flex items-center justify-between">
-                    <span class="flex items-center gap-2"><i class="fa-solid fa-square-check text-fel"></i> Checklista för WoW Forever Launch-dagen (5 Nov)</span>
-                    <span id="checklist-progress" class="text-xs bg-slate-800 text-fel font-mono px-2 py-0.5 rounded">0/3 Klart</span>
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-square-check text-priest-glow"></i> Checklista för WoW Forever Launch-dagen (5 Nov)</span>
+                    <span id="checklist-progress" class="text-xs bg-slate-800 text-priest-glow font-mono px-2 py-0.5 rounded">0/3 Klart</span>
                 </h3>
                 <div class="space-y-2 text-xs">
                     <label class="flex items-start gap-3 p-3 bg-slate-900/80 rounded border border-slate-800 cursor-pointer hover:bg-slate-900 transition">
-                        <input type="checkbox" id="chk-bags" onchange="toggleChecklist('bags')" class="mt-0.5 accent-fel w-4 h-4">
+                        <input type="checkbox" id="chk-bags" onchange="toggleChecklist('bags')" class="mt-0.5 accent-purple-500 w-4 h-4">
                         <div>
                             <span class="font-bold text-slate-200">Köp 6-slot bags direkt</span>
                             <p class="text-slate-400">Fråga eller köp tidigt från skräddare i Brill / Tirisfal så att du slipper springa till vendor hela tiden.</p>
                         </div>
                     </label>
                     <label class="flex items-start gap-3 p-3 bg-slate-900/80 rounded border border-slate-800 cursor-pointer hover:bg-slate-900 transition">
-                        <input type="checkbox" id="chk-wand" onchange="toggleChecklist('wand')" class="mt-0.5 accent-fel w-4 h-4">
+                        <input type="checkbox" id="chk-wand" onchange="toggleChecklist('wand')" class="mt-0.5 accent-purple-500 w-4 h-4">
                         <div>
-                            <span class="font-bold text-slate-200">Prioritera Wand på Level 5</span>
-                            <p class="text-slate-400">Tillverka eller köp Lesser Magic Wand så fort du nått Lvl 5. Det fördubblar din leveling-hastighet!</p>
+                            <span class="font-bold text-slate-200">Prioritera Wand på Level 5 & 5/5 Wand Spec</span>
+                            <p class="text-slate-400">Tillverka/köp Lesser Magic Wand och sätt dina 5 första talent-poäng i Wand Specialization i Disc-trädet för +25% wand-skada!</p>
                         </div>
                     </label>
                     <label class="flex items-start gap-3 p-3 bg-slate-900/80 rounded border border-slate-800 cursor-pointer hover:bg-slate-900 transition">
-                        <input type="checkbox" id="chk-spells" onchange="toggleChecklist('spells')" class="mt-0.5 accent-fel w-4 h-4">
+                        <input type="checkbox" id="chk-spells" onchange="toggleChecklist('spells')" class="mt-0.5 accent-purple-500 w-4 h-4">
                         <div>
                             <span class="font-bold text-slate-200">Träna bara nödvändiga spells</span>
-                            <p class="text-slate-400">Träna INTE alla spells på låg level (t.ex. avstå Curse of Weakness ranker eller Rain of Fire) för att spara guld till spells och WoW Forever Dual-Spec vid Level 40.</p>
+                            <p class="text-slate-400">Träna INTE alla ranks av Smite, Mind Soothe eller Holy Nova på låg level för att spara guld till mount och Dual-Spec vid Level 40.</p>
                         </div>
                     </label>
                 </div>
@@ -615,14 +614,14 @@
             
             <!-- Instructions Header -->
             <div class="bg-cardbg border border-borderbg rounded-xl p-5 shadow-lg">
-                <h2 class="text-xl font-bold text-slate-100 gold-header mb-1">Warlock Makron & Undead Levling-Tips</h2>
-                <p class="text-xs text-slate-300">Kopiera och klistra in dessa makron i spelet för att förenkla din leveling, snabba upp pulls och rädda dig i nödsituationer på WoW Forever.</p>
+                <h2 class="text-xl font-bold text-slate-100 gold-header mb-1">Priest Makron & Undead Levling-Tips</h2>
+                <p class="text-xs text-slate-300">Kopiera och klistra in dessa makron i spelet för att förenkla din leveling, snabba upp sköldar/heals och spara mana på WoW Forever.</p>
                 
                 <div class="mt-4 bg-slate-950 p-3 rounded-lg border border-slate-800 text-xs text-slate-400 space-y-1">
                     <div class="font-bold text-slate-200">Hur du lägger till makron i WoW Forever:</div>
                     <ol class="list-decimal list-inside space-y-0.5">
                         <li>Tryck på Enter i spelet och skriv <code class="text-purple-300 font-mono">/macro</code> eller pressa Esc → Macros.</li>
-                        <li>Klicka på <strong>New</strong> längst ner, välj en ikon och ge makrot ett namn (t.ex. PetAttack).</li>
+                        <li>Klicka på <strong>New</strong> längst ner, välj en ikon och ge makrot ett namn (t.ex. AutoWand).</li>
                         <li>Klicka på kopieringsknappen på ett makro nedan och klistra in koden (Ctrl + V) i den stora textrutan längst ner.</li>
                         <li>Dra ikon-knappen från makrofönstret till din handlingsbar (Action Bar)!</li>
                     </ol>
@@ -637,26 +636,26 @@
             <!-- Undead Racial Synergies Card -->
             <div class="bg-cardbg border border-purple-900/50 rounded-xl p-5 shadow-lg">
                 <h3 class="text-lg font-bold text-purple-300 mb-3 flex items-center gap-2">
-                    <i class="fa-solid fa-skull-crossbones text-purple-400"></i> Undead Racial Synergies för Warlock
+                    <i class="fa-solid fa-skull-crossbones text-purple-400"></i> Undead Racial Synergies för Priest
                 </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
                     <div class="p-3 bg-slate-900/90 rounded border border-purple-900/30">
-                        <div class="font-bold text-fel flex items-center gap-1.5">
-                            <i class="fa-solid fa-utensils"></i> Life Tap + Cannibalize
+                        <div class="font-bold text-priest-glow flex items-center gap-1.5">
+                            <i class="fa-solid fa-utensils"></i> Spirit Tap + Cannibalize
                         </div>
-                        <p class="text-slate-300 mt-1">Efter en strid: Life Tap ner hela din HP till 100% mana, använd sedan Cannibalize på en död humanoid/undead för att fylla din HP på 10 sekunder!</p>
+                        <p class="text-slate-300 mt-1">Efter att du dödat en humanoid/undead aktiveras Spirit Tap (+100% Spirit). Använd Cannibalize direkt för att regenerera hela din HP och Mana på under 10 sekunder!</p>
                     </div>
                     <div class="p-3 bg-slate-900/90 rounded border border-purple-900/30">
                         <div class="font-bold text-purple-400 flex items-center gap-1.5">
-                            <i class="fa-solid fa-shield"></i> Will of the Forsaken (WotF)
+                            <i class="fa-solid fa-virus"></i> Devouring Plague (Undead Racial)
                         </div>
-                        <p class="text-slate-300 mt-1">Bryter Charm, Fear och Sleep omedelbart. Oumbärlig i World PvP och mot Alliance Warlocks/Priests.</p>
+                        <p class="text-slate-300 mt-1">Exklusiv Undead Priest spell! Applicerar en tung Shadow-DoT som helar dig för 100% av skadan den gör. Perfekt elite/PVP-knapp.</p>
                     </div>
                     <div class="p-3 bg-slate-900/90 rounded border border-purple-900/30">
                         <div class="font-bold text-blue-400 flex items-center gap-1.5">
-                            <i class="fa-solid fa-water"></i> Underwater Breathing
+                            <i class="fa-solid fa-shield"></i> Will of the Forsaken (WotF)
                         </div>
-                        <p class="text-slate-300 mt-1">+300% undervattens-tid. Kombinera med din Unending Breath spell för obegränsade dyk i Tirisfal/Desolace quest-zoner.</p>
+                        <p class="text-slate-300 mt-1">Bryter Charm, Fear och Sleep omedelbart. Gör dig nästan omöjlig att kontrollera i World PvP.</p>
                     </div>
                 </div>
             </div>
@@ -669,12 +668,12 @@
     <footer class="bg-cardbg border-t border-borderbg py-4 px-4 text-center text-xs text-slate-500 mt-auto">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
             <div>
-                WoW Forever Dynamic Leveling Guide • Undead Affliction Warlock
+                WoW Forever Dynamic Leveling Guide • Undead Shadow Priest
             </div>
             <div class="flex items-center gap-3">
                 <span>PWA Optimized</span>
                 <span>•</span>
-                <span class="text-fel">WoW Forever Launch Ready</span>
+                <span class="text-priest-glow">WoW Forever Launch Ready</span>
             </div>
         </div>
     </footer>
@@ -688,8 +687,8 @@
             searchQuery: '',
             talentsSpent: 0,
             talents: {
-                affliction: {},
-                demonology: {}
+                shadow: {},
+                holy: {}
             },
             checklist: {
                 bags: false,
@@ -698,33 +697,32 @@
             }
         };
 
-        // Static Database Definitions (Tailored for WoW Forever Custom Spells)
+        // Static Database Definitions (Tailored for Undead Priest on WoW Forever)
         const phaseData = [
-            { maxLvl: 10, title: 'Leveling Fas 1-10: Starter & Wand Spike', desc: 'Prioritera Wand vid level 5! Använd Imp som damage support och spammar Shadow Bolt. Corruption är instant vid 5/5 talent.' },
-            { maxLvl: 20, title: 'Leveling Fas 10-20: Voidwalker & Agony Banes', desc: 'Vid level 10 får du Voidwalker. På WoW Forever är Agony klassad som Bane of Agony och stackar oberoende av Utility Curses!' },
-            { maxLvl: 30, title: 'Leveling Fas 20-30: Drain-Tanking & Soul Siphon', desc: 'Med Fel Concentration (lvl 24) och Soul Siphon ökar Drain Life med upp till 36% skada/healing per aktiv DoT.' },
-            { maxLvl: 40, title: 'Leveling Fas 30-40: Dual-Spec & Incinerate Weaving', desc: 'Lås upp Dual-Spec vid Level 40! Testa Destruction med Incinerate + Firestone eller stanna Affliction för Wrack!' },
-            { maxLvl: 50, title: 'Leveling Fas 40-50: Wrack Capstone & Shadoweave', desc: 'Wrack (31-pt Affliction Capstone) kanaliserar tung shadow-skada och ökar alla andra DoTs med 10%!' },
-            { maxLvl: 60, title: 'Leveling Fas 50-60: Decimation & Pandemic Crits', desc: 'I endgame gör Pandemic att dina DoTs och Drains kan göra Critical Strikes! Decimation ger instant Soul Fire under 35% HP.' }
+            { maxLvl: 9, title: 'Leveling Fas 1-9: Starter & Wand Rush', desc: 'Skaffa Lesser Magic Wand vid Level 5! Öppna med Holy Fire / Smite eller Shadow Word: Pain och använd Wand för 80% av mobbens HP. Aktivera Spirit Tap vid död.' },
+            { maxLvl: 13, title: 'Leveling Fas 10-13: Mind Blast & Wand Finish', desc: 'Lås upp Mind Blast vid Level 10! Använd Power Word: Shield, lägg Shadow Word: Pain och kasta Mind Blast. Avsluta med Wand för 0 mana-förlust.' },
+            { maxLvl: 19, title: 'Leveling Fas 14-19: Mind Flay & Spirit Loop', desc: 'Lås upp Mind Flay vid Level 20 (eller tidigare beroende på spec). Håll PW: Shield uppe, ctw: Pain, Mind Blast och rulla din Spirit Tap-cykel.' },
+            { maxLvl: 30, title: 'Leveling Fas 20-30: Devouring Plague & Shadowform Prep', desc: 'Använd Undead-exklusiva Devouring Plague mot eliter och i nödsituationer. Med Shadow Weaving-talents ökar din shadow-skada med upp till 15%.' },
+            { maxLvl: 40, title: 'Leveling Fas 30-40: Shadowform & Dual-Spec Power Spike', desc: 'Vid Level 40 låser du upp **Shadowform** (+15% Shadow damage & -15% fysisk skada) OCH **Dual-Spec**! Sätt spec 2 som Holy/Disc för instanta dungeon healing-inbjudningar!' },
+            { maxLvl: 50, title: 'Leveling Fas 40-50: Vampiric Touch & Shadoweave Gear', desc: 'Med Vampiric Touch / Vampiric Embrace genererar dina DoTs konstant mana och healing till dig själv och din grupp under tiden du skadar.' },
+            { maxLvl: 60, title: 'Leveling Fas 50-60: Endgame Shadow / Healing BiS', desc: 'Nå Level 60! Sy din Truefaith Robe (för Healing) eller Shadoweave-setet (för Shadow DPS). Du är nu redo för både PvP, Dungeons och Raids.' }
         ];
 
         const spellsDb = [
-            { lvl: 1, name: 'Shadow Bolt (Rank 1)', icon: 'fa-bolt', desc: 'Huvudskada tidigt.' },
-            { lvl: 1, name: 'Demon Armor / Skin', icon: 'fa-shield-cat', desc: '+Armor, HP regen & Healing uppladdning.' },
-            { lvl: 4, name: 'Corruption (Rank 1)', icon: 'fa-skull', desc: 'Din viktigaste DoT (Kan critta med Pandemic!).' },
-            { lvl: 4, name: 'Curse of Weakness', icon: 'fa-hand-dots', desc: 'Utility Curse (Kan stackas oberoende av Banes).' },
-            { lvl: 6, name: 'Life Tap (Rank 1)', icon: 'fa-heart-circle-bolt', desc: 'Omvandlar HP till Mana.' },
-            { lvl: 8, name: 'Bane of Agony (Rank 1)', icon: 'fa-fire', desc: 'WoW Forever Bane-DoT (Stackar parallellt med Curses).' },
-            { lvl: 8, name: 'Fear (Rank 1)', icon: 'fa-face-dizzy', desc: 'Livsavgörande CC.' },
-            { lvl: 10, name: 'Create Healthstone', icon: 'fa-gem', desc: 'Nöd-healing sten.' },
-            { lvl: 10, name: 'Drain Soul (Rank 1)', icon: 'fa-ghost', desc: 'Ger Soul Shards & mana regen.' },
-            { lvl: 14, name: 'Drain Life (Rank 1)', icon: 'fa-hand-holding-hand', desc: 'Stärkt av Soul Siphon talent på WoW Forever!' },
-            { lvl: 20, name: 'Incinerate (Fire Spell)', icon: 'fa-flame', desc: 'WoW Forever Fire spell som gör bonus skada om Immolate/Fire DoT är aktiv.' },
-            { lvl: 28, name: 'Shadowflame (Cone DoT)', icon: 'fa-dragon', desc: 'WoW Forever Custom Cone spell som applicerar en skadlig Shadow/Fire DoT.' },
-            { lvl: 30, name: 'Siphon Life (Talent)', icon: 'fa-droplet', desc: 'DoT som healing-tanka dig varje tick.' },
-            { lvl: 40, name: 'Wrack (Custom Capstone)', icon: 'fa-biohazard', desc: 'WoW Forever 31-pt Affliction Channel: Tung skada & +10% DoT-skada på målet!' },
-            { lvl: 40, name: 'Summon Felsteed', icon: 'fa-horse', desc: 'Gratis 60% mount!' },
-            { lvl: 60, name: 'Summon Dreadsteed', icon: 'fa-horse-head', desc: '100% Epic mount quest.' }
+            { lvl: 1, name: 'Smite (Rank 1)', icon: 'fa-sun', desc: 'Tidig Holy skada.' },
+            { lvl: 1, name: 'Power Word: Fortitude', icon: 'fa-shield-heart', desc: '+Stamina buff till dig och din grupp.' },
+            { lvl: 4, name: 'Shadow Word: Pain (Rank 1)', icon: 'fa-skull', desc: 'Din huvudsakliga DoT! Håll alltid uppe på mobben.' },
+            { lvl: 6, name: 'Power Word: Shield (Rank 1)', icon: 'fa-shield-halved', desc: 'Absorberar skada och förhindrar cast interruption.' },
+            { lvl: 10, name: 'Mind Blast (Rank 1)', icon: 'fa-brain', desc: 'Tung burst shadow-skada med kort cooldown.' },
+            { lvl: 10, name: 'Desperate Prayer (Class Quest)', icon: 'fa-cross', desc: 'Instant nödfalls-self-heal utan manakostnad (Horde Quest).' },
+            { lvl: 12, name: 'Inner Fire (Rank 1)', icon: 'fa-fire-flame-curved', desc: 'Ger stor bonus Armor och Attack Power / Spell Power.' },
+            { lvl: 14, name: 'Psychic Scream (Rank 1)', icon: 'fa-ghost', desc: 'AoE Fear mot upp till 5 fiender. Din bästa nödbroms!' },
+            { lvl: 20, name: 'Mind Flay (Talent)', icon: 'fa-eye', desc: 'Kanaliserar shadow-skada och saktar ner målets rörelsehastighet med 50%.' },
+            { lvl: 20, name: 'Devouring Plague (Undead Racial)', icon: 'fa-virus', desc: 'Exklusiv Undead DoT som gör tung skada och helar dig för 100% av skadan.' },
+            { lvl: 20, name: 'Shadowguard (Undead Racial)', icon: 'fa-shield-cat', desc: 'Tre skugg-orber som skadar angripare när du blir träffad.' },
+            { lvl: 32, name: 'Vampiric Embrace', icon: 'fa-droplet', desc: 'Gör att 20% av all din Shadow skada helar dig och din grupp.' },
+            { lvl: 40, name: 'Shadowform (31-pt Shadow Capstone)', icon: 'fa-user-ninja', desc: '+15% Shadow Damage, -15% Physical Damage taken. Ändrar din form!' },
+            { lvl: 50, name: 'Vampiric Touch (WoW Forever Talent)', icon: 'fa-hand-holding-medical', desc: 'Shadow DoT som återställer mana till din grupp motsvarande 5% av skadan.' }
         ];
 
         const wandDb = [
@@ -737,90 +735,76 @@
         ];
 
         const classQuestsDb = [
-            { lvl: 10, title: 'Voidwalker Quest: Sureki / Gakin', zone: 'Undercity Magic Quarter', reward: 'Summon Voidwalker spell', desc: 'Träna i Undercity och besegra den framkallade Voidwalkern för att låsa upp din huvudtank.' },
-            { lvl: 20, title: 'Succubus Quest: Devourer of Souls', zone: 'Undercity / Barrens', reward: 'Summon Succubus spell', desc: 'Skaffa hjärtan och ingredienser i Barrens för din bästa skade-pet.' },
-            { lvl: 20, title: 'Orb of Soran\'ruk Quest', zone: 'SFK & BFD Dungeon', reward: 'Orb of Soran\'ruk (Off-Hand)', desc: 'Ger enorm skada och stats. Gå till Shadowfang Keep och Blackfathom Deeps.' },
-            { lvl: 40, title: 'Gratis Felsteed Mount Quest', zone: 'Undercity Warlock Trainer', reward: 'Summon Felsteed (60% Mount)', desc: 'Prata med tränaren i UC vid Lvl 40 för att lära dig mount-spellen helt utan kostnad!' },
-            { lvl: 50, title: 'Warlock Sanctuary / Soul Harvester', zone: 'Sunken Temple (ST)', reward: 'Soul Harvester (Scythe) / Staff', desc: 'Gör uppdraget i Sunken Temple för din BiS-scythe som ökar Shadow Damage och Crit.' }
+            { lvl: 10, title: 'Desperate Prayer / Touch of Weakness Quest', zone: 'Undercity Magic Quarter', reward: 'Desperate Prayer Spell', desc: 'Träna hos Dark Cleric i Undercity för att få dina exklusiva ras-spells.' },
+            { lvl: 20, title: 'Devouring Plague Quest', zone: 'Undercity Priest Trainer', reward: 'Devouring Plague Spell', desc: 'Lås upp din starkaste Undead DoT spell i Undercity.' },
+            { lvl: 50, title: 'Sunken Temple Priest Quest', zone: 'Sunken Temple (ST)', reward: 'Blessed Sunband / Woestave', desc: 'Utför klassuppdraget i Sunken Temple för kraftfulla stat-smycken och vapen.' }
         ];
 
         const zoneRouteDb = [
-            { range: 'L1 - L10', title: 'Deathknell & Tirisfal Glades', desc: 'Gör alla starter-quests i Deathknell. Vid lvl 6 rör dig mot Brill. Köp din **Lesser Magic Wand** vid Lvl 5-6!' },
-            { range: 'L10 - L15', title: 'Silverpine Forest / The Barrens', desc: 'Gör Voidwalker questen i Undercity vid Lvl 10! Ta zeppelinen från Undercity till Orgrimmar för att påbörja Barrens för tät quest-struktur.' },
-            { range: 'L15 - L25', title: 'Stonetalon Mountains & Barrens South', desc: 'Gör Warlock Succubus questen vid Lvl 20. Kör **Orb of Soran\'ruk** questen i SFK & BFD. Skaffa **Gravestone Scepter** wanden vid Lvl 24!' },
-            { range: 'L25 - L35', title: 'Thousand Needles, Hillsbrad & Arathi', desc: 'Med 5/5 Fel Concentration vid Lvl 24 kan du börja Drain-tanka oavbrutet. Byt mellan Hillsbrad, Shimmering Flats och Arathi.' },
-            { range: 'L35 - L45', title: 'Stranglethorn Vale (STV), Badlands & Desolace', desc: 'Vid Lvl 40: Hämta din **gratis Felsteed Mount** i Undercity och aktivera **Dual-Spec**! Sy din **Shadoweave-utrustning** för gigantisk skadeökning.' },
-            { range: 'L45 - L53', title: 'Tanaris, Feralas & Hinterlands', desc: 'Grinda pirater i Tanaris eller ogres i Feralas. Siphon Life + Agony + Corruption gör att du drar 3 mobs samtidigt utan downtime.' },
-            { range: 'L53 - L60', title: 'Western & Eastern Plaguelands, Winterspring', desc: 'Gör din **Sunken Temple Warlock quest** för Soul Harvester. Avsluta med att grinda felcloth i Azshara och gör Pre-Raid BiS quests i Plaguelands!' }
+            { range: 'L1 - L10', title: 'Deathknell & Tirisfal Glades', desc: 'Gör alla starter-quests i Deathknell. Vid lvl 6 rör dig mot Brill. Köp din **Lesser Magic Wand** vid Lvl 5-6 och sätt 5/5 i Wand Spec!' },
+            { range: 'L10 - L15', title: 'Silverpine Forest / The Barrens', desc: 'Gör din Priest quest i Undercity vid Lvl 10! Ta zeppelinen till Orgrimmar för att påbörja Barrens för tät quest-struktur.' },
+            { range: 'L15 - L25', title: 'Stonetalon Mountains & Barrens South', desc: 'Lås upp **Mind Flay** vid Lvl 20. Gör BFD dungeon questen för **Gravestone Scepter** wanden vid Lvl 24!' },
+            { range: 'L25 - L35', title: 'Thousand Needles, Hillsbrad & Arathi', desc: 'Med Spirit Tap + Wand Spec kan du grinda oavbrutet. Byt mellan Hillsbrad, Shimmering Flats och Arathi.' },
+            { range: 'L35 - L45', title: 'Stranglethorn Vale (STV), Badlands & Desolace', desc: 'Vid Lvl 40: Lås upp **Shadowform** och aktivera **Dual-Spec (Holy/Disc)**! Sy din **Shadoweave-utrustning**.' },
+            { range: 'L45 - L53', title: 'Tanaris, Feralas & Hinterlands', desc: 'Grinda pirater i Tanaris eller ogres i Feralas. PW: Shield + SW: Pain + Mind Flay + Wand gör att du aldrig får mana-brist.' },
+            { range: 'L53 - L60', title: 'Western & Eastern Plaguelands, Winterspring', desc: 'Gör din **Sunken Temple Priest quest**. Avsluta i Plaguelands och sy din Truefaith Robe inför L60 Raids/Dungeons!' }
         ];
 
         const talentTreesData = {
-            affliction: [
-                { id: 'suppression', name: 'Suppression', max: 5, reqLvl: 10, desc: 'Minskar chansen att fiender motstår dina Affliction-spells med 2% per poäng.' },
-                { id: 'imp_corruption', name: 'Improved Corruption', max: 5, reqLvl: 10, desc: 'Minskar cast time för Corruption med 0.4s per poäng (Instant vid 5/5).' },
-                { id: 'imp_drain_soul', name: 'Improved Drain Soul', max: 2, reqLvl: 15, desc: 'Ger 100% ökning av mana regen i 20s efter att ha dödat ett mål med Drain Soul.' },
-                { id: 'imp_life_tap', name: 'Improved Life Tap', max: 2, reqLvl: 15, desc: 'Ökar mängden mana du får från Life Tap med 20%.' },
-                { id: 'fel_concentration', name: 'Fel Concentration', max: 5, reqLvl: 20, desc: 'Ger 70% chans att undvika interruption vid skada när du kastar Drain Life/Soul/Mana.' },
-                { id: 'nightfall', name: 'Nightfall', max: 2, reqLvl: 25, desc: 'Ger 4% chans per DoT-tick att kasta en instant Shadow Bolt.' },
-                { id: 'siphon_life', name: 'Siphon Life', max: 1, reqLvl: 30, desc: 'Låser upp Siphon Life DoT som healary dig varje tick.' },
-                { id: 'shadow_mastery', name: 'Shadow Mastery', max: 5, reqLvl: 40, desc: 'Ökar all Shadow-skada du gör med 10%.' }
+            shadow: [
+                { id: 'spirit_tap', name: 'Spirit Tap', max: 5, reqLvl: 10, desc: 'Ger 100% bonus Spirit i 15 sekunder efter att du utdelar nådestöten på en fiende som ger XP.' },
+                { id: 'darkness', name: 'Darkness', max: 5, reqLvl: 10, desc: 'Ökar all Shadow-skada du gör med 2% per poäng (totalt +10%).' },
+                { id: 'shadow_affinity', name: 'Shadow Affinity', max: 3, reqLvl: 15, desc: 'Minskar threat som genereras av dina Shadow spells med 8% per poäng.' },
+                { id: 'improved_sw_pain', name: 'Improved Shadow Word: Pain', max: 2, reqLvl: 15, desc: 'Ökar varaktigheten på SW: Pain med 3 sekunder per poäng (+6s totalt).' },
+                { id: 'mind_flay', name: 'Mind Flay', max: 1, reqLvl: 20, desc: 'Låser upp Mind Flay channel spell (Shadow damage + 50% slow).' },
+                { id: 'shadow_weaving', name: 'Shadow Weaving', max: 5, reqLvl: 25, desc: 'Dina Shadow spells har 100% chans att applicera en debuff som ökar Shadow-skada på målet med 3% per stack (max 15%).' },
+                { id: 'vampiric_embrace', name: 'Vampiric Embrace', max: 1, reqLvl: 30, desc: 'Låser upp Vampiric Embrace DoT som helar dig för 20% av Shadow damage du gör.' },
+                { id: 'shadowform', name: 'Shadowform', max: 1, reqLvl: 40, desc: 'Låser upp Shadowform! +15% Shadow Damage, -15% Physical Damage taken.' }
             ],
-            demonology: [
-                { id: 'demonic_embrace', name: 'Demonic Embrace', max: 5, reqLvl: 10, desc: 'Ökar din totala Stamina med 15% men minskar Spirit med 5%.' },
-                { id: 'imp_imp', name: 'Improved Imp', max: 3, reqLvl: 10, desc: 'Ökar effekt från Impens Blood Pact med 30%.' },
-                { id: 'imp_voidwalker', name: 'Improved Voidwalker', max: 3, reqLvl: 15, desc: 'Ökar effekt från Voidwalkerns Threat och Shield med 30%.' },
-                { id: 'fel_stamina', name: 'Fel Stamina', max: 5, reqLvl: 20, desc: 'Ökar din Demons Max HP med 15%.' }
+            holy: [
+                { id: 'wand_spec', name: 'Wand Specialization', max: 5, reqLvl: 10, desc: 'Ökar skadan du gör med Wands med 5% per poäng (totalt +25% skada utan manakostnad!).' },
+                { id: 'silent_resolve', name: 'Silent Resolve', max: 5, reqLvl: 10, desc: 'Minskar risken att dina spells motstås / dispel:as.' },
+                { id: 'improved_pw_shield', name: 'Improved Power Word: Shield', max: 3, reqLvl: 15, desc: 'Ökar skadan som absorberas av Power Word: Shield med 5% per poäng.' },
+                { id: 'martyrdom', name: 'Martyrdom', max: 2, reqLvl: 20, desc: 'Ger 100% spell interruption resistance efter att du blivit utsatt för en critical strike.' }
             ]
         };
 
         const macrosDb = [
             {
-                title: 'Pet Attack + Corruption',
-                badge: 'Essential Pull',
-                desc: 'Skickar in din Pet att attackera omedelbart när du kastar Corruption på målet.',
-                code: '#showtooltip Corruption\n/petattack\n/cast Corruption'
-            },
-            {
-                title: 'Mouseover DoT (Corruption / Agony)',
-                badge: 'Multi-Targeting',
-                desc: 'Lägger DoT på mobben du har muspekaren över utan att ändra ditt nuvarande target.',
-                code: '#showtooltip Corruption\n/cast [@mouseover,harm,nodead][] Corruption'
-            },
-            {
-                title: 'Drain Soul Rank 1 (Mana Regen)',
-                badge: 'Mana Saving',
-                desc: 'Använder alltid Rank 1 Drain Soul för att spara mana när du bara vill trigga +100% mana regen talenten!',
-                code: '#showtooltip Drain Soul(Rank 1)\n/cast Drain Soul(Rank 1)'
-            },
-            {
-                title: 'Universal Healthstone Spam',
-                badge: 'Emergency HP',
-                desc: 'Använder din tillgängliga Healthstone oavsett vilken rank du har i väskan.',
-                code: '#showtooltip Major Healthstone\n/use Major Healthstone\n/use Greater Healthstone\n/use Healthstone\n/use Lesser Healthstone\n/use Minor Healthstone'
-            },
-            {
-                title: 'Mouseover Fear / CC',
-                badge: 'Crowd Control',
-                desc: 'Kastar Fear på den mob eller spelare du pekar på utan att tappa ditt primära target.',
-                code: '#showtooltip Fear\n/cast [@mouseover,harm,nodead][] Fear'
-            },
-            {
-                title: 'Emergency Sacrifice + Healthstone',
-                badge: 'Panic Button',
-                desc: 'Offrar din Voidwalker omedelbart för en absorberande sköld och dricker en Healthstone samtidigt!',
-                code: '#showtooltip Sacrifice\n/cast Sacrifice\n/use Major Healthstone\n/use Greater Healthstone\n/use Healthstone'
-            },
-            {
-                title: 'Swift Pet Summon (Fel Domination)',
-                badge: 'Pet Recovery',
-                desc: 'Aktiverar Fel Domination och kastar Summon Voidwalker i 0.5 sekunder om din pet dör.',
-                code: '#showtooltip Fel Domination\n/cast Fel Domination\n/cast Summon Voidwalker'
-            },
-            {
-                title: 'Auto-Wand Toggle',
-                badge: 'Smooth Shooting',
-                desc: 'Säkerställer att du inte avbryter din Wand-skjutning genom att trycka på knappen flera gånger.',
+                title: 'Auto-Wand Toggle (Crucial)',
+                badge: 'Essential Wand',
+                desc: 'Säkerställer att du inte avbryter din Wand-skjutning om du trycker på knappen flera gånger i rad.',
                 code: '#showtooltip Shoot\n/cast! Shoot'
+            },
+            {
+                title: 'Mouseover Power Word: Shield',
+                badge: 'Fast Defense',
+                desc: 'Lägger sköld på spelaren eller dig själv som du pekar på utan att ändra ditt nuvarande target.',
+                code: '#showtooltip Power Word: Shield\n/cast [@mouseover,help,nodead][@player] Power Word: Shield'
+            },
+            {
+                title: 'Mouseover Shadow Word: Pain',
+                badge: 'Multi-Dotting',
+                desc: 'Applicerar SW: Pain på mobben du pekar på med muspekaren under strid.',
+                code: '#showtooltip Shadow Word: Pain\n/cast [@mouseover,harm,nodead][] Shadow Word: Pain'
+            },
+            {
+                title: 'Panic Button: Desperate Prayer + Cannibalize',
+                badge: 'Emergency HP',
+                desc: 'Kastar instant Desperate Prayer och börjar direkt Cannibalize om en död kropp finns i närheten.',
+                code: '#showtooltip Desperate Prayer\n/cast Desperate Prayer\n/use Heavy Runecloth Bandage\n/cast Cannibalize'
+            },
+            {
+                title: 'Shadowform Cancel & Emergency Heal',
+                badge: 'Emergency Save',
+                desc: 'Går ur Shadowform med ett klick och kastar Flash Heal / Greater Heal på dig själv.',
+                code: '#showtooltip Flash Heal\n/cancelaura Shadowform\n/cast [@player] Flash Heal'
+            },
+            {
+                title: 'Self-Buff Fortitude & Inner Fire',
+                badge: 'Buff Combo',
+                desc: 'Buffar Inner Fire och Power Word: Fortitude smidigt.',
+                code: '#showtooltip Inner Fire\n/castsequence reset=5 Inner Fire, Power Word: Fortitude'
             }
         ];
 
@@ -836,13 +820,13 @@
 
         function loadLocalStorage() {
             try {
-                const savedLvl = localStorage.getItem('uw_warlock_lvl');
+                const savedLvl = localStorage.getItem('sp_priest_lvl');
                 if (savedLvl) state.level = parseInt(savedLvl, 10);
 
-                const savedChecklist = localStorage.getItem('uw_warlock_checklist');
+                const savedChecklist = localStorage.getItem('sp_priest_checklist');
                 if (savedChecklist) state.checklist = JSON.parse(savedChecklist);
 
-                const savedTalents = localStorage.getItem('uw_warlock_talents');
+                const savedTalents = localStorage.getItem('sp_priest_talents');
                 if (savedTalents) state.talents = JSON.parse(savedTalents);
             } catch (e) {
                 console.warn('LocalStorage error:', e);
@@ -851,9 +835,9 @@
 
         function saveLocalStorage() {
             try {
-                localStorage.setItem('uw_warlock_lvl', state.level);
-                localStorage.setItem('uw_warlock_checklist', JSON.stringify(state.checklist));
-                localStorage.setItem('uw_warlock_talents', JSON.stringify(state.talents));
+                localStorage.setItem('sp_priest_lvl', state.level);
+                localStorage.setItem('sp_priest_checklist', JSON.stringify(state.checklist));
+                localStorage.setItem('sp_priest_talents', JSON.stringify(state.talents));
             } catch (e) {
                 console.warn('LocalStorage save error:', e);
             }
@@ -880,10 +864,10 @@
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
                     tabs.forEach(t => {
-                        t.classList.remove('active-tab', 'border-fel', 'text-fel');
+                        t.classList.remove('active-tab', 'border-priest', 'text-priest-glow');
                         t.classList.add('border-transparent', 'text-slate-400');
                     });
-                    tab.classList.add('active-tab', 'border-fel', 'text-fel');
+                    tab.classList.add('active-tab', 'border-priest', 'text-priest-glow');
                     tab.classList.remove('border-transparent', 'text-slate-400');
 
                     const targetTabId = tab.getAttribute('data-tab');
@@ -931,30 +915,37 @@
 
             if (state.level < 10) {
                 steps = [
-                    { step: '1', title: 'Immolate', desc: 'Öppna på max range' },
-                    { step: '2', title: 'Corruption', desc: 'Instant cast (5/5 Talent)' },
-                    { step: '3', title: 'Shadow Bolt', desc: 'Casta 1-2 ggr' },
-                    { step: '4', title: 'Wand Shoot', desc: 'Avsluta mobben' }
+                    { step: '1', title: 'Holy Fire / Smite', desc: 'Öppna på max range (2s cast)' },
+                    { step: '2', title: 'SW: Pain', desc: 'Instant DoT' },
+                    { step: '3', title: 'Wand Shoot', desc: 'Skjut med Wand från 80% HP' },
+                    { step: '4', title: 'Spirit Tap Trigger', desc: 'Få 100% Spirit vid död' }
+                ];
+            } else if (state.level < 14) {
+                steps = [
+                    { step: '1', title: 'PW: Shield', desc: 'Pre-shield för skydd' },
+                    { step: '2', title: 'Mind Blast (Rank 1+)', desc: 'Burst skada direkt vid Lvl 10' },
+                    { step: '3', title: 'SW: Pain', desc: 'Instant DoT' },
+                    { step: '4', title: 'Wand Shoot', desc: 'Skjut ner mobben utan mana-kostnad' }
                 ];
             } else if (state.level < 40) {
                 steps = [
-                    { step: '1', title: 'Bane of Agony', desc: 'Lägg Bane (stackar m. Curses)' },
-                    { step: '2', title: 'Corruption', desc: 'Instant DoT' },
-                    { step: '3', title: 'Drain Life', desc: 'Drain-tanka m. Soul Siphon buff' },
-                    { step: '4', title: 'Life Tap / Drain Soul', desc: 'Återställ mana' }
+                    { step: '1', title: 'PW: Shield', desc: 'Pre-shield för no interruption' },
+                    { step: '2', title: 'Mind Blast & SW: Pain', desc: 'Burst & DoT på målet' },
+                    { step: '3', title: 'Mind Flay / Devouring Plague', desc: 'DoT + Slow channel' },
+                    { step: '4', title: 'Wand Finishing', desc: 'Skjut ihjäl utan mana-spend' }
                 ];
             } else {
                 steps = [
-                    { step: '1', title: 'Corruption & Agony', desc: 'Multi-DoT 2-3 mål' },
-                    { step: '2', title: 'Wrack (New)', desc: 'Kanalisera för +10% DoT boost' },
-                    { step: '3', title: 'Drain Life', desc: 'Drain-tanka utan interruption' },
-                    { step: '4', title: 'Decimation Exec', desc: 'Instant Soul Fire under 35% HP' }
+                    { step: '1', title: 'Shadowform Active', desc: '+15% Shadow damage konstant' },
+                    { step: '2', title: 'Vampiric Touch & Pain', desc: 'Multi-DoT mål för mana/healing' },
+                    { step: '3', title: 'Mind Blast & Flay', desc: 'Burst & Shadow Weaving stacks' },
+                    { step: '4', title: 'Spirit Tap Regen', desc: 'Nära 100% mana inför nästa mob' }
                 ];
             }
 
             rotationContainer.innerHTML = steps.map(s => `
                 <div class="p-3 bg-slate-900/90 rounded-lg border border-purple-900/30 flex items-start gap-3">
-                    <span class="w-6 h-6 rounded-full bg-fel/20 text-fel font-bold text-xs flex items-center justify-center border border-fel/40 flex-shrink-0">${s.step}</span>
+                    <span class="w-6 h-6 rounded-full bg-priest/20 text-priest-glow font-bold text-xs flex items-center justify-center border border-priest/40 flex-shrink-0">${s.step}</span>
                     <div>
                         <div class="text-xs font-bold text-slate-100">${s.title}</div>
                         <div class="text-[11px] text-slate-400 mt-0.5">${s.desc}</div>
@@ -978,13 +969,13 @@
 
             grid.innerHTML = availableSpells.map(s => `
                 <div class="p-3 bg-slate-900/80 rounded-lg border border-slate-800 flex items-start gap-3 hover:border-purple-500/40 transition">
-                    <div class="w-9 h-9 rounded bg-purple-950 text-purple-400 flex items-center justify-center text-base border border-purple-800/50 flex-shrink-0">
+                    <div class="w-9 h-9 rounded bg-purple-950 text-purple-300 flex items-center justify-center text-base border border-purple-800/50 flex-shrink-0">
                         <i class="fa-solid ${s.icon}"></i>
                     </div>
                     <div>
                         <div class="text-xs font-bold text-slate-200 flex items-center justify-between">
                             <span>${s.name}</span>
-                            <span class="text-[10px] bg-slate-800 text-fel px-1.5 py-0.5 rounded font-mono">Lvl ${s.lvl}</span>
+                            <span class="text-[10px] bg-slate-800 text-priest-glow px-1.5 py-0.5 rounded font-mono">Lvl ${s.lvl}</span>
                         </div>
                         <div class="text-[11px] text-slate-400 mt-0.5">${s.desc}</div>
                     </div>
@@ -997,8 +988,8 @@
             const maxPoints = Math.max(0, state.level - 9);
             document.getElementById('talent-points-available').innerText = `${maxPoints} poäng`;
 
-            let affSpent = 0;
-            let demSpent = 0;
+            let shadowSpent = 0;
+            let holySpent = 0;
 
             const renderTree = (treeKey, containerId) => {
                 const container = document.getElementById(containerId);
@@ -1006,8 +997,8 @@
 
                 container.innerHTML = talents.map(t => {
                     const currentRank = state.talents[treeKey]?.[t.id] || 0;
-                    if (treeKey === 'affliction') affSpent += currentRank;
-                    if (treeKey === 'demonology') demSpent += currentRank;
+                    if (treeKey === 'shadow') shadowSpent += currentRank;
+                    if (treeKey === 'holy') holySpent += currentRank;
 
                     const isAvailable = state.level >= t.reqLvl;
 
@@ -1022,7 +1013,7 @@
                             </div>
                             <div class="flex items-center gap-1.5 flex-shrink-0">
                                 <button onclick="changeTalent('${treeKey}', '${t.id}', -1)" class="w-6 h-6 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold flex items-center justify-center border border-slate-700">-</button>
-                                <span class="text-xs font-mono font-bold text-fel px-1">${currentRank}/${t.max}</span>
+                                <span class="text-xs font-mono font-bold text-priest-glow px-1">${currentRank}/${t.max}</span>
                                 <button onclick="changeTalent('${treeKey}', '${t.id}', 1)" class="w-6 h-6 rounded bg-purple-900 hover:bg-purple-800 text-purple-200 text-xs font-bold flex items-center justify-center border border-purple-700">+</button>
                             </div>
                         </div>
@@ -1030,11 +1021,11 @@
                 }).join('');
             };
 
-            renderTree('affliction', 'affliction-talents');
-            renderTree('demonology', 'demonology-talents');
+            renderTree('shadow', 'shadow-talents');
+            renderTree('holy', 'holy-talents');
 
-            document.getElementById('affliction-spent').innerText = `${affSpent} Poäng`;
-            document.getElementById('demonology-spent').innerText = `${demSpent} Poäng`;
+            document.getElementById('shadow-spent').innerText = `${shadowSpent} Poäng`;
+            document.getElementById('holy-spent').innerText = `${holySpent} Poäng`;
         }
 
         function changeTalent(treeKey, id, delta) {
@@ -1056,18 +1047,29 @@
             const available = Math.max(0, state.level - 9);
             let remaining = available;
 
-            talentTreesData.affliction.forEach(t => {
+            // First 5 points into Wand Spec (Holy tree)
+            if (remaining >= 5) {
+                state.talents.holy['wand_spec'] = 5;
+                remaining -= 5;
+            } else {
+                state.talents.holy['wand_spec'] = remaining;
+                remaining = 0;
+            }
+
+            // Remaining points into Shadow tree
+            talentTreesData.shadow.forEach(t => {
                 if (remaining <= 0) return;
                 const points = Math.min(remaining, t.max);
-                state.talents.affliction[t.id] = points;
+                state.talents.shadow[t.id] = points;
                 remaining -= points;
             });
+
             saveLocalStorage();
             renderTalents();
         }
 
         function resetTalents() {
-            state.talents = { affliction: {}, demonology: {} };
+            state.talents = { shadow: {}, holy: {} };
             saveLocalStorage();
             renderTalents();
         }
@@ -1078,16 +1080,16 @@
             list.innerHTML = wandDb.map(w => {
                 const isUnlocked = state.level >= w.lvl;
                 return `
-                    <div class="p-2.5 rounded-lg border ${isUnlocked ? 'bg-purple-950/20 border-fel/40' : 'bg-slate-900/40 border-slate-800 opacity-60'} flex items-center justify-between text-xs">
+                    <div class="p-2.5 rounded-lg border ${isUnlocked ? 'bg-purple-950/20 border-priest/40' : 'bg-slate-900/40 border-slate-800 opacity-60'} flex items-center justify-between text-xs">
                         <div class="flex items-center gap-2.5">
-                            <i class="fa-solid fa-wand-magic ${isUnlocked ? 'text-fel' : 'text-slate-600'} text-sm"></i>
+                            <i class="fa-solid fa-wand-magic ${isUnlocked ? 'text-priest-glow' : 'text-slate-600'} text-sm"></i>
                             <div>
                                 <span class="font-bold text-slate-200">${w.name}</span>
                                 <span class="text-[10px] text-slate-400 block">${w.source}</span>
                             </div>
                         </div>
                         <div class="text-right">
-                            <span class="font-mono font-bold text-fel">${w.dps}</span>
+                            <span class="font-mono font-bold text-priest-glow">${w.dps}</span>
                             <span class="text-[10px] text-slate-500 block">Lvl ${w.lvl}</span>
                         </div>
                     </div>
@@ -1119,7 +1121,7 @@
                     </div>
                     <div class="mt-3 pt-2 border-t border-slate-800/80 flex items-center justify-between text-[10px]">
                         <span class="text-slate-500"><i class="fa-solid fa-map-pin"></i> ${q.zone}</span>
-                        <span class="text-fel font-bold"><i class="fa-solid fa-gift"></i> ${q.reward}</span>
+                        <span class="text-priest-glow font-bold"><i class="fa-solid fa-gift"></i> ${q.reward}</span>
                     </div>
                 </div>
             `).join('');
@@ -1137,7 +1139,7 @@
                             <p class="text-[11px] text-slate-400 mt-0.5">${z.desc}</p>
                         </div>
                     </div>
-                    <span class="text-[10px] text-fel font-mono uppercase bg-fel/10 border border-fel/20 px-2 py-0.5 rounded self-start sm:self-center">Fas ${idx + 1}</span>
+                    <span class="text-[10px] text-priest-glow font-mono uppercase bg-priest/10 border border-priest/20 px-2 py-0.5 rounded self-start sm:self-center">Fas ${idx + 1}</span>
                 </div>
             `).join('');
         }
@@ -1178,13 +1180,13 @@
                     <div>
                         <div class="flex items-center justify-between gap-2 mb-1">
                             <h4 class="text-xs font-bold text-slate-100 flex items-center gap-2">
-                                <i class="fa-solid fa-code text-fel"></i> ${m.title}
+                                <i class="fa-solid fa-code text-priest-glow"></i> ${m.title}
                             </h4>
                             <span class="text-[10px] bg-slate-800 text-purple-300 px-2 py-0.5 rounded-full border border-slate-700">${m.badge}</span>
                         </div>
                         <p class="text-[11px] text-slate-400 mb-3">${m.desc}</p>
                         
-                        <div class="bg-slate-950 p-3 rounded-lg border border-slate-900 font-mono text-[11px] text-fel leading-relaxed overflow-x-auto select-all">
+                        <div class="bg-slate-950 p-3 rounded-lg border border-slate-900 font-mono text-[11px] text-priest-glow leading-relaxed overflow-x-auto select-all">
                             <pre>${m.code}</pre>
                         </div>
                     </div>
@@ -1211,11 +1213,11 @@
             }
 
             const originalHTML = btn.innerHTML;
-            btn.innerHTML = `<i class="fa-solid fa-check text-fel"></i> Kopierat!`;
-            btn.classList.add('bg-fel/20', 'text-fel', 'border-fel/40');
+            btn.innerHTML = `<i class="fa-solid fa-check text-priest-glow"></i> Kopierat!`;
+            btn.classList.add('bg-priest/20', 'text-priest-glow', 'border-priest/40');
             setTimeout(() => {
                 btn.innerHTML = originalHTML;
-                btn.classList.remove('bg-fel/20', 'text-fel', 'border-fel/40');
+                btn.classList.remove('bg-priest/20', 'text-priest-glow', 'border-priest/40');
             }, 2000);
         }
 
@@ -1223,22 +1225,22 @@
         function setupPWA() {
             // Manifest Data URL Injection
             const manifestData = {
-                name: "Undead Warlock 1-60 WoW Forever Guide",
-                short_name: "WarlockForever",
+                name: "Undead Priest 1-60 WoW Forever Guide",
+                short_name: "PriestForever",
                 start_url: "./index.html",
                 display: "standalone",
                 background_color: "#0a0910",
                 theme_color: "#0a0910",
-                description: "WoW Forever Dynamic Leveling Guide for Undead Warlock",
+                description: "WoW Forever Dynamic Leveling Guide for Undead Shadow Priest",
                 icons: [
                     {
-                        src: "https://placehold.co/192x192/581c87/ffffff?text=Warlock",
+                        src: "https://placehold.co/192x192/581c87/ffffff?text=Priest",
                         sizes: "192x192",
                         type: "image/png",
                         purpose: "any maskable"
                     },
                     {
-                        src: "https://placehold.co/512x512/581c87/ffffff?text=Warlock",
+                        src: "https://placehold.co/512x512/581c87/ffffff?text=Priest",
                         sizes: "512x512",
                         type: "image/png"
                     }
@@ -1306,7 +1308,7 @@
             // Register Service Worker for offline capability
             if ('serviceWorker' in navigator) {
                 const swCode = `
-                    const CACHE_NAME = 'warlock-forever-v2';
+                    const CACHE_NAME = 'priest-forever-v1';
                     self.addEventListener('install', (e) => {
                         self.skipWaiting();
                         e.waitUntil(
@@ -1337,7 +1339,7 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'WoW_Forever_Warlock_Guide.html';
+            a.download = 'WoW_Forever_Priest_Guide.html';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
